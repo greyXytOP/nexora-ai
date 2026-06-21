@@ -90,7 +90,7 @@ export function Navbar() {
             type="button"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
-            className="inline-flex size-10 items-center justify-center border border-[var(--color-border)] text-[var(--color-fg)] md:hidden"
+            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center border border-[var(--color-border)] text-[var(--color-fg)] md:hidden"
           >
             <Menu className="size-5" />
           </button>

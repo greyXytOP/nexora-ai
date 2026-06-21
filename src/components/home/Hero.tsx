@@ -146,7 +146,7 @@ export function Hero() {
         >
           <a
             href="/contact"
-            className="group inline-flex items-center gap-2 border-2 border-[var(--color-brand)] bg-[var(--color-brand)] px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-[var(--color-brand-strong)] hover:border-[var(--color-brand-strong)]"
+            className="group inline-flex w-full items-center justify-center gap-2 border-2 border-[var(--color-brand)] bg-[var(--color-brand)] px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-[var(--color-brand-strong)] hover:border-[var(--color-brand-strong)] sm:w-auto"
           >
             Get a custom AI solution
             <motion.svg
@@ -163,7 +163,7 @@ export function Hero() {
           </a>
           <a
             href="/what-we-offer"
-            className="inline-flex items-center gap-2 border-2 border-[var(--color-border)] bg-transparent px-7 py-3.5 text-base font-semibold text-[var(--color-fg)] transition-all hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
+            className="inline-flex w-full items-center justify-center gap-2 border-2 border-[var(--color-border)] bg-transparent px-7 py-3.5 text-base font-semibold text-[var(--color-fg)] transition-all hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] sm:w-auto"
           >
             See problems we've solved
           </a>

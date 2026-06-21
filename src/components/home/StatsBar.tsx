@@ -12,13 +12,13 @@ export function StatsBar() {
   return (
     <section className="relative border-t border-[var(--color-border)] py-20 md:py-24">
       <div className="container-x">
-        <div className="grid grid-cols-2 gap-0 border border-[var(--color-border)] md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-px bg-[var(--color-border)] border border-[var(--color-border)] md:grid-cols-4">
           {stats.map((s, i) => (
             <Reveal
               key={s.label}
               delay={i * 0.08}
               scale
-              className="border-r border-[var(--color-border)] p-8 last:border-r-0 transition-all hover:bg-[var(--color-bg-elev)] md:p-10"
+              className="bg-[var(--color-bg)] p-8 transition-colors hover:bg-[var(--color-bg-elev)] md:p-10"
             >
               <div className="flex flex-col gap-2">
                 <span className="font-display text-4xl font-semibold tracking-tight text-[var(--color-brand)] md:text-5xl">

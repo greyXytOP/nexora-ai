@@ -6,9 +6,8 @@ import Link from "next/link";
 import { ArrowUpRight, ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 
-const CARD_WIDTH = 360;
 const CARD_GAP = 20;
-const CARD_STRIDE = CARD_WIDTH + CARD_GAP;
+const CARD_CLASSES = "w-[280px] sm:w-[320px] md:w-[360px]";
 
 type WorkItem = {
   no: string;
@@ -140,8 +139,7 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.06 * index, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className="relative flex shrink-0 flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-elev)] transition-colors hover:border-[var(--color-brand)]"
-      style={{ width: CARD_WIDTH }}
+      className={`relative flex shrink-0 flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-elev)] transition-colors hover:border-[var(--color-brand)] ${CARD_CLASSES}`}
     >
       {/* Gradient banner */}
       <div className={`relative h-[110px] bg-gradient-to-br ${item.gradient} overflow-hidden`}>
@@ -209,9 +207,14 @@ export function FeaturedWork() {
   const x = useMotionValue(0);
   const [leftBound, setLeftBound] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [cardStride, setCardStride] = useState(300);
 
   const updateBounds = useCallback(() => {
     if (trackRef.current && containerRef.current) {
+      const firstCard = trackRef.current.children[0] as HTMLElement | null;
+      const measuredWidth = firstCard ? firstCard.offsetWidth : 280;
+      const stride = measuredWidth + CARD_GAP;
+      setCardStride(stride);
       const trackW = trackRef.current.scrollWidth;
       const containerW = containerRef.current.offsetWidth;
       setLeftBound(Math.min(0, -(trackW - containerW)));
@@ -226,20 +229,20 @@ export function FeaturedWork() {
 
   const snapToIndex = useCallback((index: number) => {
     const clamped = Math.max(0, Math.min(workItems.length - 1, index));
-    const target = Math.max(leftBound, -(clamped * CARD_STRIDE));
+    const target = Math.max(leftBound, -(clamped * cardStride));
     animate(x, target, { type: "spring", stiffness: 380, damping: 42 });
     setActiveIndex(clamped);
-  }, [leftBound, x]);
+  }, [leftBound, x, cardStride]);
 
   const handleDragEnd = useCallback((_: unknown, info: PanInfo) => {
     const currentX = x.get();
     const velocitySnap = info.velocity.x < -200
-      ? Math.ceil(-currentX / CARD_STRIDE)
+      ? Math.ceil(-currentX / cardStride)
       : info.velocity.x > 200
-      ? Math.floor(-currentX / CARD_STRIDE)
-      : Math.round(-currentX / CARD_STRIDE);
+      ? Math.floor(-currentX / cardStride)
+      : Math.round(-currentX / cardStride);
     snapToIndex(velocitySnap);
-  }, [x, snapToIndex]);
+  }, [x, snapToIndex, cardStride]);
 
   return (
     <section className="relative border-t border-[var(--color-border)] py-24 md:py-32">

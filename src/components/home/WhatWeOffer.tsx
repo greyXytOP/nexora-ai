@@ -86,7 +86,7 @@ export function WhatWeOffer() {
           subtitle="We don't do generic AI. We understand your industry and build problem-specific AI tools around the exact workflows slowing you down."
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-0 md:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-0 md:grid-cols-2 lg:grid-cols-3">
           {offerings.map((item, i) => {
             const Icon = item.icon;
             return (

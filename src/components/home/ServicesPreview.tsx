@@ -104,25 +104,27 @@ export function ServicesPreview() {
 
         {/* Sector selector */}
         <Reveal delay={0.12}>
-          <div className="mt-14 flex flex-wrap gap-0 border border-[var(--color-border)]">
-            {sectors.map((s) => {
-              const Icon = sectorIcons[s.id];
-              const active = s.id === activeSector;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => setActiveSector(s.id)}
-                  className={`flex items-center gap-2 border-r border-[var(--color-border)] px-5 py-3.5 text-sm font-semibold transition-all duration-200 last:border-r-0 ${
-                    active
-                      ? "bg-[var(--color-brand)] text-white"
-                      : "text-[var(--color-fg-muted)] hover:bg-[var(--color-bg-elev)] hover:text-[var(--color-fg)]"
-                  }`}
-                >
-                  <Icon className="size-4" />
-                  {s.label}
-                </button>
-              );
-            })}
+          <div className="mt-14 overflow-x-auto border border-[var(--color-border)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex min-w-max">
+              {sectors.map((s) => {
+                const Icon = sectorIcons[s.id];
+                const active = s.id === activeSector;
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => setActiveSector(s.id)}
+                    className={`flex min-h-[44px] items-center gap-2 border-r border-[var(--color-border)] px-5 py-3 text-sm font-semibold transition-all duration-200 last:border-r-0 ${
+                      active
+                        ? "bg-[var(--color-brand)] text-white"
+                        : "text-[var(--color-fg-muted)] hover:bg-[var(--color-bg-elev)] hover:text-[var(--color-fg)]"
+                    }`}
+                  >
+                    <Icon className="size-4" />
+                    {s.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </Reveal>
 
