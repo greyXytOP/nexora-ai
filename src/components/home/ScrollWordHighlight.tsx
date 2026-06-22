@@ -60,6 +60,7 @@ const SNAP_DURATION = 0.2;
 const SNAP_DELAY = 0.02;
 const SNAP_EASE = "power2.inOut";
 const GAP = 16;
+const SCROLL_PER_WORD = 200; // px of scroll per word transition
 
 export function ScrollWordHighlight() {
   const [fontSize, setFontSize] = useState(56);
@@ -90,16 +91,10 @@ export function ScrollWordHighlight() {
   const fontSizePx = parseFontSize(font.fontSize, 56);
   const fontLineHeight = parseLineHeight(font.lineHeight, fontSizePx, 1.1);
   const lineHeightPx = fontSizePx * fontLineHeight;
-  const halfLine = lineHeightPx / 2;
-
-  const stickyTop = `calc(50vh - ${halfLine}px)`;
 
   useLayoutEffect(() => {
     const list = listRef.current;
     if (!list || ITEMS.length === 0) return;
-
-    const vpH = window.innerHeight;
-    const vpY = vpH / 2;
 
     const ctx = gsap.context(() => {
       gsap.to(list, {
@@ -107,35 +102,30 @@ export function ScrollWordHighlight() {
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: `top ${vpY - halfLine}px`,
-          end: `+=${(ITEMS.length - 1) * lineHeightPx}`,
+          start: "center center",
+          end: `+=${(ITEMS.length - 1) * SCROLL_PER_WORD}`,
           scrub: SCRUB_AMOUNT,
-        },
-      });
-
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: `top ${vpY - halfLine}px`,
-        end: `+=${(ITEMS.length - 1) * lineHeightPx}`,
-        snap: {
-          snapTo: 1 / (ITEMS.length - 1),
-          duration: { min: Math.min(0.2, SNAP_DURATION), max: SNAP_DURATION },
-          delay: SNAP_DELAY,
-          ease: SNAP_EASE,
-          directional: false,
+          pin: true,
+          pinSpacing: true,
+          snap: {
+            snapTo: 1 / (ITEMS.length - 1),
+            duration: { min: Math.min(0.2, SNAP_DURATION), max: SNAP_DURATION },
+            delay: SNAP_DELAY,
+            ease: SNAP_EASE,
+            directional: false,
+          },
         },
       });
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [lineHeightPx, halfLine]);
+  }, [lineHeightPx]);
 
   return (
     <section
       ref={sectionRef}
       style={{
         width: "100%",
-        overflow: "clip",
         backgroundColor: "transparent",
         borderTop: "1px solid var(--color-border)",
         paddingTop: "5rem",
@@ -144,7 +134,6 @@ export function ScrollWordHighlight() {
         ...font,
       }}
     >
-      {/* container-x equivalent via padding */}
       <div
         style={{
           paddingLeft: "max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem))",
@@ -154,16 +143,13 @@ export function ScrollWordHighlight() {
         <div
           style={{
             display: "flex",
-            alignItems: "flex-start",
+            alignItems: "center",
             gap: GAP,
             boxSizing: "border-box",
-            height: ITEMS.length * lineHeightPx,
           }}
         >
           <h2
             style={{
-              position: "sticky",
-              top: stickyTop,
               margin: 0,
               font: "inherit",
               height: "fit-content",
@@ -180,8 +166,6 @@ export function ScrollWordHighlight() {
             style={{
               overflow: "hidden",
               height: lineHeightPx,
-              position: "sticky",
-              top: stickyTop,
               flex: 1,
             }}
           >
