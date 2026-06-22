@@ -11,7 +11,7 @@ const agencies = [
   {
     label: "Marketing Agency",
     description: "Client acquisition, campaign automation, and AI-driven growth for agencies.",
-    href: "/booklet/view",
+    href: "/bookletmarketing",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" className="size-8">
         <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 1 8.835-2.535m0 0A23.74 23.74 0 0 1 18.795 3c1.303 0 2.533.516 3.434 1.434a4.49 4.49 0 0 1-.001 6.349m-15.93 0a4.5 4.5 0 0 0 6.362 6.362" />
@@ -31,7 +31,7 @@ const agencies = [
   {
     label: "D2C Brands",
     description: "Retention automation, personalised commerce, and conversion intelligence.",
-    href: "/booklet/view",
+    href: "/bookletD2C",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" className="size-8">
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z" />
