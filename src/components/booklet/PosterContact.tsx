@@ -200,7 +200,7 @@ export function PosterContact() {
                   <span className="text-gradient-brand">shipping_at_velocity()</span>
                 </div>
                 <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
-                  © {new Date().getFullYear()} Nexora AI · v1.0 booklet
+                  © {new Date().getFullYear()} Nuvero AI · v1.0 booklet
                 </div>
               </div>
             </div>

@@ -4,11 +4,25 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X, FileText, Search } from "lucide-react";
 import { site } from "@/content/site";
 import { cn } from "@/lib/utils";
 import { GlowButton } from "@/components/shared/GlowButton";
 import { Logo } from "./Logo";
+import { Kbd } from "@/components/ui/kbd";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu";
+
+const plainNavItems = [
+  { label: "What We Offer", href: "/what-we-offer" },
+  { label: "Work", href: "/work" },
+  { label: "Process", href: "/process" },
+  { label: "About", href: "/about" },
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,6 +52,16 @@ export function Navbar() {
     };
   }, [open]);
 
+  const navLinkClass = (href: string) => {
+    const active = pathname === href || pathname.startsWith(href + "/");
+    return cn(
+      "relative px-4 py-2 text-sm font-medium transition-colors",
+      active
+        ? "bg-[var(--color-brand)] text-white"
+        : "text-[var(--color-fg-muted)] hover:text-[var(--color-fg)] hover:bg-[var(--color-bg-elev)]",
+    );
+  };
+
   return (
     <>
       <motion.header
@@ -53,35 +77,61 @@ export function Navbar() {
         <div className="container-x flex h-16 items-center justify-between md:h-18">
           <Logo />
 
-          <nav className="hidden items-center gap-0 md:flex">
-            {site.nav.map((item) => {
-              const active = pathname === item.href || pathname.startsWith(item.href + "/");
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "relative px-4 py-2 text-sm font-medium transition-colors",
-                    active
-                      ? "bg-[var(--color-brand)] text-white"
-                      : "text-[var(--color-fg-muted)] hover:text-[var(--color-fg)] hover:bg-[var(--color-bg-elev)]",
-                  )}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+          {/* Desktop nav — NavigationMenu */}
+          <NavigationMenu className="hidden md:flex">
+            <NavigationMenuList className="gap-0 space-x-0">
+              {/* What We Offer */}
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/what-we-offer" className={navLinkClass("/what-we-offer")}>
+                    What We Offer
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              {/* Services — plain link */}
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/services" className={navLinkClass("/services")}>
+                    Services
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+
+              {/* Remaining plain links */}
+              {plainNavItems.slice(1).map((item) => (
+                <NavigationMenuItem key={item.href}>
+                  <NavigationMenuLink asChild>
+                    <Link href={item.href} className={navLinkClass(item.href)}>
+                      {item.label}
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
 
           <div className="hidden items-center gap-2 md:flex">
+            {/* CMD+K search hint */}
+            <button
+              onClick={() => {
+                const e = new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true });
+                document.dispatchEvent(e);
+              }}
+              className="inline-flex h-11 w-36 items-center justify-center gap-1.5 border border-[var(--color-border)] bg-[var(--color-bg-elev)] text-xs text-[var(--color-fg-subtle)] transition-all hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
+              aria-label="Open command palette"
+            >
+              <Search className="size-3.5" />
+              <Kbd className="text-[10px]">⌘K</Kbd>
+            </button>
             <Link
               href="/booklet"
-              className="inline-flex min-h-[44px] items-center gap-1.5 border-2 border-[var(--color-border)] bg-[var(--color-bg-elev)] px-4 py-2 text-sm font-semibold text-[var(--color-fg-muted)] transition-all hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
+              className="inline-flex h-11 w-36 items-center justify-center gap-1.5 border-2 border-[var(--color-border)] bg-[var(--color-bg-elev)] text-sm font-semibold text-[var(--color-fg-muted)] transition-all hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
             >
               <FileText className="size-3.5 text-[var(--color-accent)]" />
               Booklet
             </Link>
-            <GlowButton href="/contact" size="sm" withArrow>
+            <GlowButton href="/contact" size="sm" withArrow className="!h-11 !w-36 !px-0">
               Book a call
             </GlowButton>
           </div>

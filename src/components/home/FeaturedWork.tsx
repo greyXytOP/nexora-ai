@@ -1,13 +1,10 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import { motion, useMotionValue, animate, type PanInfo } from "motion/react";
-import Link from "next/link";
-import { ArrowUpRight, ArrowLeft, ArrowRight, ExternalLink, Mic, Bot, Megaphone, Truck, Target, Search } from "lucide-react";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { ArrowUpRight, ExternalLink, Mic, Bot, Megaphone, Truck, Target, Search } from "lucide-react";
 import { SectionHeader } from "@/components/shared/SectionHeader";
-
-const CARD_GAP = 20;
-const CARD_CLASSES = "w-[280px] sm:w-[320px] md:w-[360px]";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type WorkItem = {
   no: string;
@@ -140,16 +137,15 @@ const workItems: WorkItem[] = [
   },
 ];
 
-function WorkCard({ item, index }: { item: WorkItem; index: number }) {
+const CARD_W_MOBILE = "min(82vw, 320px)";
+const CARD_W_DESKTOP = "360px";
+
+function WorkCard({ item }: { item: WorkItem }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.06 * index, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -4, transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1] } }}
-      className={`relative flex shrink-0 flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-elev)] transition-colors hover:border-[var(--color-brand)] hover:shadow-[0_8px_24px_-4px_rgba(193,18,31,0.12)] ${CARD_CLASSES}`}
+    <div
+      className="relative flex shrink-0 flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-elev)] transition-colors hover:border-[var(--color-brand)]"
+      style={{ width: CARD_W_DESKTOP }}
     >
-      {/* Gradient banner */}
       <div className={`relative h-[110px] bg-gradient-to-br ${item.gradient} overflow-hidden`}>
         <div className="absolute inset-0 grid-bg opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-elev)]/60 to-transparent" />
@@ -176,7 +172,6 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
         </div>
       </div>
 
-      {/* Body */}
       <div className="flex flex-1 flex-col gap-5 p-5">
         <div className="flex items-start gap-2.5">
           <span className="mt-0.5 shrink-0 text-[var(--color-brand)]">
@@ -196,7 +191,6 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
           ))}
         </ul>
 
-        {/* Impact stats */}
         <div className="mt-auto grid grid-cols-3 gap-2 border-t border-[var(--color-border)] pt-4">
           {item.impact.map((r) => (
             <div key={r.label} className="flex flex-col gap-0.5">
@@ -210,146 +204,207 @@ function WorkCard({ item, index }: { item: WorkItem; index: number }) {
           ))}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
-export function FeaturedWork() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const [leftBound, setLeftBound] = useState(0);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [cardStride, setCardStride] = useState(300);
+function SkeletonCard() {
+  return (
+    <div
+      className="relative flex shrink-0 flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-elev)]"
+      style={{ width: CARD_W_DESKTOP }}
+    >
+      <Skeleton className="h-[110px] w-full rounded-none bg-[var(--color-surface)]" />
+      <div className="flex flex-1 flex-col gap-5 p-5">
+        <div className="flex items-start gap-2.5">
+          <Skeleton className="mt-1 size-4 shrink-0 rounded-none bg-[var(--color-surface)]" />
+          <div className="flex flex-1 flex-col gap-2">
+            <Skeleton className="h-3 w-full rounded-none bg-[var(--color-surface)]" />
+            <Skeleton className="h-3 w-3/4 rounded-none bg-[var(--color-surface)]" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 border-t border-[var(--color-border)] pt-4">
+          {[1, 2, 3, 4].map((i) => (
+            <Skeleton key={i} className="h-2.5 w-full rounded-none bg-[var(--color-surface)]" />
+          ))}
+        </div>
+        <div className="mt-auto grid grid-cols-3 gap-2 border-t border-[var(--color-border)] pt-4">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="flex flex-col gap-1.5">
+              <Skeleton className="h-5 w-10 rounded-none bg-[var(--color-surface)]" />
+              <Skeleton className="h-2 w-full rounded-none bg-[var(--color-surface)]" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
-  const updateBounds = useCallback(() => {
-    if (trackRef.current && containerRef.current) {
-      const firstCard = trackRef.current.children[0] as HTMLElement | null;
-      const measuredWidth = firstCard ? firstCard.offsetWidth : 280;
-      const stride = measuredWidth + CARD_GAP;
-      setCardStride(stride);
-      const trackW = trackRef.current.scrollWidth;
-      const containerW = containerRef.current.offsetWidth;
-      setLeftBound(Math.min(0, -(trackW - containerW)));
-    }
+/* ── Desktop: scroll-driven sticky horizontal ── */
+function DesktopScroller() {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const rowRef = useRef<HTMLDivElement>(null);
+  const [scrollWidth, setScrollWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const [ready, setReady] = useState(false);
+
+  const measure = useCallback(() => {
+    if (!rowRef.current) return;
+    setScrollWidth(rowRef.current.scrollWidth);
+    setContainerWidth(rowRef.current.parentElement?.offsetWidth ?? 0);
+    setReady(true);
   }, []);
 
   useEffect(() => {
-    updateBounds();
-    window.addEventListener("resize", updateBounds);
-    return () => window.removeEventListener("resize", updateBounds);
-  }, [updateBounds]);
+    const ro = new ResizeObserver(measure);
+    if (rowRef.current) ro.observe(rowRef.current);
+    measure();
+    return () => ro.disconnect();
+  }, [measure]);
 
-  const snapToIndex = useCallback((index: number) => {
-    const clamped = Math.max(0, Math.min(workItems.length - 1, index));
-    const target = Math.max(leftBound, -(clamped * cardStride));
-    animate(x, target, { type: "spring", stiffness: 380, damping: 42 });
-    setActiveIndex(clamped);
-  }, [leftBound, x, cardStride]);
+  const { scrollYProgress } = useScroll({
+    target: outerRef,
+    offset: ["start start", "end end"],
+  });
 
-  const handleDragEnd = useCallback((_: unknown, info: PanInfo) => {
-    const currentX = x.get();
-    const velocitySnap = info.velocity.x < -200
-      ? Math.ceil(-currentX / cardStride)
-      : info.velocity.x > 200
-      ? Math.floor(-currentX / cardStride)
-      : Math.round(-currentX / cardStride);
-    snapToIndex(velocitySnap);
-  }, [x, snapToIndex, cardStride]);
+  const rawX = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -(scrollWidth - containerWidth)]
+  );
+  const x = useSpring(rawX, { damping: 60, stiffness: 500, mass: 1 });
 
   return (
-    <section className="relative border-t border-[var(--color-border)] py-24 md:py-32">
-      <div className="container-x">
-        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+    /* outer: 300vh tall — drives scroll distance */
+    <div ref={outerRef} style={{ height: "300vh" }}>
+      {/* sticky inner */}
+      <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
+        <div className="container-x">
           <SectionHeader
             eyebrow="Selected work"
             title="Systems we've shipped that moved real business metrics."
             subtitle="Every engagement starts with a number we're trying to move — and ends with the proof we moved it."
           />
-          <div className="hidden shrink-0 items-center gap-1.5 self-end pb-1 sm:flex">
-            <button
-              onClick={() => snapToIndex(activeIndex - 1)}
-              disabled={activeIndex === 0}
-              aria-label="Previous project"
-              className="inline-flex size-9 items-center justify-center border border-[var(--color-border)] text-[var(--color-fg-muted)] transition-colors hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              <ArrowLeft className="size-4" />
-            </button>
-            <button
-              onClick={() => snapToIndex(activeIndex + 1)}
-              disabled={activeIndex >= workItems.length - 1}
-              aria-label="Next project"
-              className="inline-flex size-9 items-center justify-center border border-[var(--color-border)] text-[var(--color-fg-muted)] transition-colors hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] disabled:opacity-30 disabled:cursor-not-allowed"
-            >
-              <ArrowRight className="size-4" />
-            </button>
-          </div>
         </div>
 
-        {/* Scroll track */}
-        <div ref={containerRef} className="mt-12 overflow-hidden">
+        {/* card row */}
+        <div className="mt-10 overflow-visible pl-[max(1.5rem,calc((100vw-1280px)/2+1.5rem))]">
           <motion.div
-            ref={trackRef}
-            drag="x"
-            dragConstraints={{ left: leftBound, right: 0 }}
-            dragElastic={0.04}
-            dragMomentum={false}
-            onDragEnd={handleDragEnd}
-            style={{ x, gap: `${CARD_GAP}px` }}
-            className="flex cursor-grab select-none active:cursor-grabbing"
+            ref={rowRef}
+            style={{ x }}
+            className="flex gap-5 will-change-transform"
           >
-            {workItems.map((item, i) => (
-              <WorkCard key={item.no} item={item} index={i} />
-            ))}
+            {!ready
+              ? workItems.map((_, i) => <SkeletonCard key={i} />)
+              : workItems.map((item) => <WorkCard key={item.no} item={item} />)}
+            {/* trailing spacer so last card clears the viewport edge */}
+            <div className="shrink-0 w-8" aria-hidden />
           </motion.div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-8 flex items-center justify-between">
-          {/* Dot indicators */}
-          <div className="flex items-center gap-1.5">
-            {workItems.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => snapToIndex(i)}
-                aria-label={`Go to project ${i + 1}`}
-                className={`h-1.5 transition-all duration-300 ${
-                  i === activeIndex
-                    ? "w-5 bg-[var(--color-brand)]"
-                    : "w-1.5 bg-[var(--color-border)] hover:bg-[var(--color-fg-muted)]"
-                }`}
-              />
-            ))}
+        {/* progress indicator */}
+        <div className="container-x mt-8">
+          <div className="h-px w-full bg-[var(--color-border)]">
+            <motion.div
+              className="h-full bg-[var(--color-brand)]"
+              style={{ scaleX: scrollYProgress, transformOrigin: "left" }}
+            />
           </div>
-
-          {/* Mobile arrows */}
-          <div className="flex items-center gap-1.5 sm:hidden">
-            <button
-              onClick={() => snapToIndex(activeIndex - 1)}
-              disabled={activeIndex === 0}
-              aria-label="Previous project"
-              className="inline-flex size-8 items-center justify-center border border-[var(--color-border)] text-[var(--color-fg-muted)] disabled:opacity-30"
-            >
-              <ArrowLeft className="size-3.5" />
-            </button>
-            <button
-              onClick={() => snapToIndex(activeIndex + 1)}
-              disabled={activeIndex >= workItems.length - 1}
-              aria-label="Next project"
-              className="inline-flex size-8 items-center justify-center border border-[var(--color-border)] text-[var(--color-fg-muted)] disabled:opacity-30"
-            >
-              <ArrowRight className="size-3.5" />
-            </button>
-          </div>
-
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-fg-muted)] underline-offset-4 hover:text-[var(--color-fg)] hover:underline"
-          >
-            See all case studies <ArrowUpRight className="size-4" />
-          </Link>
+          <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--color-fg-subtle)]">
+            Scroll to explore all {workItems.length} case studies
+          </p>
         </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Mobile: native swipe ── */
+function MobileScroller() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const rowRef = useRef<HTMLDivElement>(null);
+
+  const onScroll = useCallback(() => {
+    const row = rowRef.current;
+    if (!row) return;
+    const cardW = row.scrollWidth / workItems.length;
+    setActiveIndex(Math.round(row.scrollLeft / cardW));
+  }, []);
+
+  return (
+    <section className="border-t border-[var(--color-border)] py-20">
+      <div className="container-x mb-8">
+        <SectionHeader
+          eyebrow="Selected work"
+          title="Systems we've shipped that moved real business metrics."
+          subtitle="Every engagement starts with a number we're trying to move — and ends with the proof we moved it."
+        />
+      </div>
+
+      <div
+        ref={rowRef}
+        onScroll={onScroll}
+        className="flex gap-4 overflow-x-auto px-4 pb-2"
+        style={{
+          scrollSnapType: "x mandatory",
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "none",
+        } as React.CSSProperties}
+      >
+        <style>{`.mobile-row::-webkit-scrollbar{display:none}`}</style>
+        {workItems.map((item) => (
+          <div
+            key={item.no}
+            style={{
+              width: CARD_W_MOBILE,
+              minWidth: CARD_W_MOBILE,
+              scrollSnapAlign: "center",
+            }}
+          >
+            <WorkCard item={item} />
+          </div>
+        ))}
+        <div className="shrink-0 w-4" aria-hidden />
+      </div>
+
+      {/* dots */}
+      <div className="mt-4 flex items-center justify-center gap-1.5">
+        {workItems.map((_, i) => (
+          <button
+            key={i}
+            aria-label={`Go to project ${i + 1}`}
+            onClick={() => {
+              const row = rowRef.current;
+              if (!row) return;
+              const cardW = row.scrollWidth / workItems.length;
+              row.scrollTo({ left: i * cardW, behavior: "smooth" });
+            }}
+            className={`h-1.5 transition-all duration-300 ${
+              i === activeIndex
+                ? "w-5 bg-[var(--color-brand)]"
+                : "w-1.5 bg-[var(--color-border)]"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
+}
+
+/* ── Root export ── */
+export function FeaturedWork() {
+  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  if (isDesktop === null) return null; // avoid hydration mismatch
+
+  return isDesktop ? <DesktopScroller /> : <MobileScroller />;
 }

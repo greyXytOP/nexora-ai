@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Mail, Phone, MessageCircle, Linkedin, Github, Instagram, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import { site } from "@/content/site";
 import { GradientOrb } from "@/components/shared/GradientOrb";
 import { GridBackground } from "@/components/shared/GridBackground";
 import { Reveal } from "@/components/shared/Reveal";
 import { ContactForm } from "@/components/shared/ContactForm";
+import { SocialLinks } from "@/components/shared/SocialLinks";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Book a discovery call with Nexora AI. We'll walk through your workflows, surface the top 3 AI opportunities, and tell you whether we're the right fit.",
+    "Book a discovery call with Nuvero AI. We'll walk through your workflows, surface the top 3 AI opportunities, and tell you whether we're the right fit.",
 };
 
 const channels = [
@@ -33,11 +34,6 @@ const channels = [
   },
 ];
 
-const socials = [
-  { label: "LinkedIn", href: site.socials.linkedin, icon: Linkedin, handle: "@bhumitgoyal" },
-  { label: "GitHub", href: site.socials.github, icon: Github, handle: "@bhumitgoyal" },
-  { label: "Instagram", href: site.socials.instagram, icon: Instagram, handle: "@bhumitgoyal" },
-];
 
 export default function ContactPage() {
   return (
@@ -113,25 +109,7 @@ export default function ContactPage() {
                 <h2 className="font-display text-base font-semibold tracking-tight">
                   Find us online
                 </h2>
-                <ul className="flex flex-col gap-2.5">
-                  {socials.map((s) => {
-                    const Icon = s.icon;
-                    return (
-                      <li key={s.label}>
-                        <a
-                          href={s.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group inline-flex items-center gap-3 text-sm text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
-                        >
-                          <Icon className="size-4" />
-                          <span>{s.label}</span>
-                          <span className="font-mono text-xs text-[var(--color-fg-subtle)]">{s.handle}</span>
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <SocialLinks />
               </div>
             </Reveal>
 

@@ -9,11 +9,11 @@ export function LoadingScreen() {
 
   useEffect(() => {
     // skip on subsequent navigations — only show on hard load
-    if (sessionStorage.getItem("nexora_loaded")) {
+    if (sessionStorage.getItem("nuvero_loaded")) {
       setVisible(false);
       return;
     }
-    sessionStorage.setItem("nexora_loaded", "1");
+    sessionStorage.setItem("nuvero_loaded", "1");
 
     const holdTimer = setTimeout(() => setPhase("hold"), 800);
     const outTimer = setTimeout(() => setPhase("out"), 1600);
@@ -67,7 +67,7 @@ export function LoadingScreen() {
 
           {/* wordmark — letters stagger in */}
           <div className="flex items-baseline gap-2 font-display text-2xl font-semibold tracking-tight">
-            {"Nexora".split("").map((char, i) => (
+            {"Nuvero".split("").map((char, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 16 }}

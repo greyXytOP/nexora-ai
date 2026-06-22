@@ -16,6 +16,26 @@
   --color-success: #2D7A4F;
   --color-danger: #C1121F;
 
+  /* shadcn/ui compatibility — mapped to existing design tokens */
+  --color-background: #FDF0D5;
+  --color-foreground: #003049;
+  --color-card: #F5E4C0;
+  --color-card-foreground: #003049;
+  --color-popover: #FDF0D5;
+  --color-popover-foreground: #003049;
+  --color-primary: #C1121F;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #F5E4C0;
+  --color-secondary-foreground: #003049;
+  --color-muted: #EDD89D;
+  --color-muted-foreground: #1a4a66;
+  --color-accent-foreground: #003049;
+  --color-destructive: #C1121F;
+  --color-destructive-foreground: #ffffff;
+  --color-input: #003049;
+  --color-ring: #C1121F;
+  --radius: 0rem;
+
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-space-grotesk), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
@@ -27,6 +47,9 @@
   --animate-marquee-reverse: marquee-reverse 40s linear infinite;
   --animate-shimmer: shimmer 3s linear infinite;
   --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-tab-fade-in: tab-fade-in 0.25s ease-out;
 }
 
 @keyframes marquee {
@@ -49,19 +72,35 @@
   50% { opacity: 1; transform: scale(1.05); }
 }
 
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes tab-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @layer base {
   * {
     @apply border-[var(--color-border)];
   }
 
   html {
+    background: var(--color-bg);
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   body {
-    background: var(--color-bg);
+    background: transparent;
     color: var(--color-fg);
     font-family: var(--font-sans);
     overflow-x: hidden;

@@ -19,7 +19,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Our members are 60-plus and half of them aren't great with apps. The bot Nexora built is patient, speaks their language, and never makes them feel dumb. We got feedback saying 'it actually listens' — that's not easy to achieve.",
+      "Our members are 60-plus and half of them aren't great with apps. The bot Nuvero built is patient, speaks their language, and never makes them feel dumb. We got feedback saying 'it actually listens' — that's not easy to achieve.",
     name: "Anil Rastogi",
     role: "Head of Member Experience",
     company: "GoHappy Club",
@@ -46,7 +46,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Response time on customer chats dropped from hours to seconds after Nexora set up the AI assistant. Bookings went up, support load went down. Our team now only handles the stuff that actually needs a human.",
+      "Response time on customer chats dropped from hours to seconds after Nuvero set up the AI assistant. Bookings went up, support load went down. Our team now only handles the stuff that actually needs a human.",
     name: "Kunal Mehta",
     role: "Co-Founder",
     company: "CarBuddy Delhi",

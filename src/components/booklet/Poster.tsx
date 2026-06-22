@@ -33,7 +33,7 @@ export function Poster({
         <>
           <div className="poster-pagenum">{page}</div>
           <div className="poster-watermark">
-            Nexora AI · Services booklet · {section}
+            Nuvero AI · Services booklet · {section}
           </div>
         </>
       ) : null}

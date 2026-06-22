@@ -1,9 +1,9 @@
 export const site = {
-  name: "Nexora AI",
-  shortName: "Nexora",
+  name: "Nuvero AI",
+  shortName: "Nuvero",
   tagline: "You run it, we handle it.",
   description:
-    "Nexora AI is a boutique AI consultancy designing agentic systems, voice agents, and intelligent workflows that compound revenue, slash manual ops, and put your business on autopilot.",
+    "Nuvero AI is a boutique AI consultancy designing agentic systems, voice agents, and intelligent workflows that compound revenue, slash manual ops, and put your business on autopilot.",
   url: "https://nexora-ai.vercel.app",
   ogImage: "/og.png",
   founder: {

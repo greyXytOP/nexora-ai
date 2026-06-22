@@ -156,7 +156,7 @@ export function PosterCaseStudy({ caseStudy, page, index, total }: Props) {
           ))}
         </div>
         <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
-          nexora-ai · case {c.slug}
+          nuvero-ai · case {c.slug}
         </span>
       </motion.div>
     </Poster>

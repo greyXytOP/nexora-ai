@@ -32,11 +32,11 @@ export default function ProcessPage() {
 
       <section className="container-x pb-24">
         <div className="relative">
-          <div className="absolute left-[28px] top-4 hidden h-[calc(100%-32px)] w-px bg-gradient-to-b from-[var(--color-brand)] via-[var(--color-accent)] to-transparent md:block" />
+          <div className="absolute left-[28px] top-4 z-10 hidden h-[calc(100%-32px)] w-px bg-gradient-to-b from-[var(--color-brand)] via-[var(--color-accent)] to-transparent md:block" />
 
           <ol className="flex flex-col gap-6">
             {processSteps.map((step, i) => (
-              <Reveal key={step.number} delay={i * 0.05}>
+              <Reveal key={step.number} delay={i * 0.05} className="relative z-0">
                 <li className="relative flex flex-col gap-5 card-surface p-6 md:flex-row md:gap-8 md:p-8 md:pl-20">
                   <span className="absolute left-0 top-6 hidden size-14 -translate-x-1/2 items-center justify-center rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-elev)] font-mono text-sm font-semibold text-[var(--color-accent)] md:left-7 md:flex">
                     {step.number}

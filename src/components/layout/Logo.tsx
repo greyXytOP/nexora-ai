@@ -24,7 +24,7 @@ export function Logo({ className }: { className?: string }) {
         </svg>
       </span>
       <span className="text-[var(--color-fg)]">
-        Nexora <span className="text-[var(--color-brand)]">AI</span>
+        Nuvero <span className="text-[var(--color-brand)]">AI</span>
       </span>
     </Link>
   );

@@ -8,6 +8,20 @@ import { GridBackground } from "@/components/shared/GridBackground";
 import { Reveal } from "@/components/shared/Reveal";
 import { CtaBanner } from "@/components/home/CtaBanner";
 import { cn } from "@/lib/utils";
+import { Progress } from "@/components/ui/progress";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
+function parsePercent(metric: string): number | null {
+  const m = metric.replace(/[~<>+]/g, "").match(/(\d+)%/);
+  return m ? Math.min(100, parseInt(m[1], 10)) : null;
+}
 
 export async function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -48,12 +62,25 @@ export default async function CaseStudyPage({
         <GradientOrb tone="accent" size={460} className="right-[-120px] top-[10%]" />
 
         <div className="container-x relative z-10 pt-12 md:pt-16">
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-2 text-sm text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)]"
-          >
-            <ArrowLeft className="size-4" /> Back to all work
-          </Link>
+          <Breadcrumb>
+            <BreadcrumbList className="text-xs text-[var(--color-fg-muted)]">
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/" className="hover:text-[var(--color-fg)]">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/work" className="hover:text-[var(--color-fg)]">Work</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-[var(--color-fg)]">{study.client}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
         </div>
 
         <div className="container-x relative z-10 py-16 md:py-20">
@@ -97,14 +124,23 @@ export default async function CaseStudyPage({
       <section className="container-x py-20 md:py-28">
         <Reveal>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            {study.results.map((r) => (
-              <div key={r.label} className="card-surface flex flex-col gap-2 p-7">
-                <span className="text-gradient-brand font-display text-5xl font-semibold tracking-tight">
-                  {r.metric}
-                </span>
-                <span className="text-sm text-[var(--color-fg-muted)]">{r.label}</span>
-              </div>
-            ))}
+            {study.results.map((r) => {
+              const pct = parsePercent(r.metric);
+              return (
+                <div key={r.label} className="card-surface flex flex-col gap-3 p-7">
+                  <span className="text-gradient-brand font-display text-5xl font-semibold tracking-tight">
+                    {r.metric}
+                  </span>
+                  <span className="text-sm text-[var(--color-fg-muted)]">{r.label}</span>
+                  {pct !== null && (
+                    <Progress
+                      value={pct}
+                      className="h-1 rounded-none bg-[var(--color-border)] [&>div]:bg-[var(--color-brand)] [&>div]:rounded-none"
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
         </Reveal>
       </section>

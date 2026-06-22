@@ -2,15 +2,51 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const trustLogos = [
-  "Southwest Gases",
-  "GoHappy Club",
-  "Welders Supply USA",
-  "Marketrz Agency",
-  "CarBuddy Delhi",
-  "Velocity Watches",
+  {
+    name: "Southwest Gases",
+    industry: "Energy & Utilities",
+    metric: "97% of inbound calls resolved without human handoff",
+    slug: "southwest-gases-voice-concierge",
+  },
+  {
+    name: "GoHappy Club",
+    industry: "Senior Wellness · D2C",
+    metric: "70%+ AI cache hit rate, ~60% lower LLM cost",
+    slug: "gohappy-club-member-assistant",
+  },
+  {
+    name: "Welders Supply USA",
+    industry: "Industrial Supply",
+    metric: "Outbound follow-up fully automated end-to-end",
+    slug: null,
+  },
+  {
+    name: "Marketrz Agency",
+    industry: "Marketing & Media",
+    metric: "Multi-channel campaigns in <15 min from one brief",
+    slug: null,
+  },
+  {
+    name: "CarBuddy Delhi",
+    industry: "Automotive · D2C",
+    metric: "Lead nurturing & qualification running 24/7",
+    slug: null,
+  },
+  {
+    name: "Velocity Watches",
+    industry: "Luxury E-commerce",
+    metric: "Cart recovery + post-purchase flows automated",
+    slug: null,
+  },
 ];
 
 const words = ["custom", "problems", "require", "customized", "software."];
@@ -124,7 +160,7 @@ export function Hero() {
           transition={{ delay: 0.75, duration: 0.6 }}
           className="mt-7 max-w-2xl text-pretty text-base text-[var(--color-fg-muted)] md:text-lg"
         >
-          Nexora AI builds custom AI agents and end-to-end workflow automations for
+          Nuvero AI builds custom AI agents and end-to-end workflow automations for
           e-commerce brands, agencies, and operators — compounding revenue, cutting manual
           ops, and scaling your business without scaling your team.
         </motion.p>
@@ -179,7 +215,7 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* trust logos */}
+        {/* trust logos — with hover cards */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -191,12 +227,34 @@ export function Hero() {
           </span>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             {trustLogos.map((logo) => (
-              <span
-                key={logo}
-                className="font-display text-sm font-semibold tracking-tight text-[var(--color-fg-muted)] opacity-50 md:text-base"
-              >
-                {logo}
-              </span>
+              <HoverCard key={logo.name} openDelay={200} closeDelay={100}>
+                <HoverCardTrigger asChild>
+                  <span className="cursor-default font-display text-sm font-semibold tracking-tight text-[var(--color-fg-muted)] opacity-50 transition-opacity hover:opacity-80 md:text-base">
+                    {logo.name}
+                  </span>
+                </HoverCardTrigger>
+                <HoverCardContent
+                  side="top"
+                  className="w-64 rounded-none border border-[var(--color-border)] bg-[var(--color-bg-elev)] p-4 shadow-[4px_4px_0_var(--color-brand)]"
+                >
+                  <div className="flex flex-col gap-2">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--color-fg-subtle)]">
+                      {logo.industry}
+                    </p>
+                    <p className="text-sm font-medium leading-snug text-[var(--color-fg)]">
+                      {logo.metric}
+                    </p>
+                    {logo.slug && (
+                      <Link
+                        href={`/work/${logo.slug}`}
+                        className="mt-1 inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-brand)] hover:text-[var(--color-brand-strong)]"
+                      >
+                        See case study <ArrowUpRight className="size-3" />
+                      </Link>
+                    )}
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
             ))}
           </div>
         </motion.div>

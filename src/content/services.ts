@@ -27,6 +27,28 @@ export type Service = {
 
 export const services: Service[] = [
   {
+    slug: "custom-ai-workflows",
+    title: "Custom AI Workflows & Integrations",
+    tagline: "Tailored agentic systems wired into the tools you already pay for.",
+    problem:
+      "Off-the-shelf SaaS handles 70%. The last 30% — the part that's actually unique to your business — is where the leverage hides.",
+    solution: [
+      "Bespoke agents for ops, finance, recruiting, supply chain, and beyond.",
+      "Tool-use across Slack, Notion, Sheets, Drive, Jira, Stripe, and your internal APIs.",
+      "Event-driven orchestration with retries, observability, and human-in-the-loop checkpoints.",
+      "Built on your stack, owned by you — no vendor lock-in, no per-seat tax.",
+    ],
+    deliverables: [
+      "Discovery + workflow map",
+      "Production-ready agent deployment",
+      "Observability dashboard + on-call runbooks",
+      "30-day post-launch optimization",
+    ],
+    tech: ["LangGraph", "Temporal", "n8n", "Supabase", "Vercel", "AWS Lambda"],
+    icon: Workflow,
+    accent: "accent",
+  },
+  {
     slug: "ai-voice-agents",
     title: "AI Voice Agents",
     tagline: "Human-grade voice concierges that never sleep.",
@@ -113,28 +135,6 @@ export const services: Service[] = [
     tech: ["n8n", "Make", "Instantly", "Smartlead", "HubSpot", "Claude"],
     icon: Megaphone,
     accent: "brand",
-  },
-  {
-    slug: "custom-ai-workflows",
-    title: "Custom AI Workflows & Integrations",
-    tagline: "Tailored agentic systems wired into the tools you already pay for.",
-    problem:
-      "Off-the-shelf SaaS handles 70%. The last 30% — the part that's actually unique to your business — is where the leverage hides.",
-    solution: [
-      "Bespoke agents for ops, finance, recruiting, supply chain, and beyond.",
-      "Tool-use across Slack, Notion, Sheets, Drive, Jira, Stripe, and your internal APIs.",
-      "Event-driven orchestration with retries, observability, and human-in-the-loop checkpoints.",
-      "Built on your stack, owned by you — no vendor lock-in, no per-seat tax.",
-    ],
-    deliverables: [
-      "Discovery + workflow map",
-      "Production-ready agent deployment",
-      "Observability dashboard + on-call runbooks",
-      "30-day post-launch optimization",
-    ],
-    tech: ["LangGraph", "Temporal", "n8n", "Supabase", "Vercel", "AWS Lambda"],
-    icon: Workflow,
-    accent: "accent",
   },
   {
     slug: "ai-content-engine",

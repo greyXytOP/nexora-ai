@@ -53,7 +53,7 @@ const stackByGroup = {
 
 export function PosterWhyUs() {
   return (
-    <Poster page="13 / 14" section="Why Nexora">
+    <Poster page="13 / 14" section="Why Nuvero">
       <PosterDecor
         grid
         orbs={[
@@ -69,7 +69,7 @@ export function PosterWhyUs() {
         className="poster-eyebrow"
       >
         <Sparkles className="size-3 text-[var(--color-accent)]" />
-        Why Nexora
+        Why Nuvero
       </motion.div>
 
       <motion.h2

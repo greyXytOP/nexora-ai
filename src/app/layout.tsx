@@ -6,6 +6,11 @@ import { ChromeShell } from "@/components/layout/ChromeShell";
 import { NoiseOverlay } from "@/components/shared/NoiseOverlay";
 import { LoadingScreen } from "@/components/shared/LoadingScreen";
 import { ScrollProgressBar } from "@/components/layout/ScrollProgressBar";
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { CommandPalette } from "@/components/shared/CommandPalette";
+import { QuickContact } from "@/components/shared/QuickContact";
+import { DotGridWrapper } from "@/components/shared/DotGridWrapper";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -83,12 +88,30 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
     >
       <body className="relative min-h-screen antialiased">
-        <ScrollProgressBar />
-        <LoadingScreen />
-        <NoiseOverlay />
-        <ChromeShell navbar={<Navbar />} footer={<Footer />}>
-          {children}
-        </ChromeShell>
+        <DotGridWrapper />
+        <TooltipProvider delayDuration={300}>
+          <ScrollProgressBar />
+          <LoadingScreen />
+          <NoiseOverlay />
+          <ChromeShell navbar={<Navbar />} footer={<Footer />}>
+            {children}
+          </ChromeShell>
+          <CommandPalette />
+          <QuickContact />
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              classNames: {
+                toast: "!bg-[var(--color-bg-elev)] !border-[var(--color-border)] !text-[var(--color-fg)] !rounded-none !shadow-[4px_4px_0_var(--color-brand)]",
+                title: "!font-display !font-semibold",
+                description: "!text-[var(--color-fg-muted)]",
+                success: "!border-[var(--color-success)]",
+                error: "!border-[var(--color-brand)]",
+                actionButton: "!bg-[var(--color-brand)] !text-white",
+              },
+            }}
+          />
+        </TooltipProvider>
       </body>
     </html>
   );

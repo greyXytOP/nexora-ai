@@ -142,7 +142,7 @@ export function MktCaseStudy() {
           <div className="flex-1 rounded-xl border border-[var(--color-border-strong)] bg-[linear-gradient(135deg,rgba(139,92,246,0.12),rgba(34,211,238,0.08))] p-4">
             <Quote className="size-4 text-[var(--color-accent)] opacity-70" />
             <p className="mt-2 text-[11px] leading-[1.6] text-[var(--color-fg)]">
-              &ldquo;Most consultants hand you a slide deck. Nexora ships production code,
+              &ldquo;Most consultants hand you a slide deck. Nuvero ships production code,
               owns the integration, and stays around to optimize. Rare combination.&rdquo;
             </p>
             <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--color-fg-subtle)]">
@@ -176,7 +176,7 @@ export function MktCaseStudy() {
           ))}
         </div>
         <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
-          nexora-ai · case lumina
+          nuvero-ai · case lumina
         </span>
       </motion.div>
     </Poster>

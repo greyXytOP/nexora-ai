@@ -69,7 +69,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-[var(--color-border)] pt-8 text-xs text-[var(--color-fg-subtle)] md:flex-row md:items-center">
-          <span>© {new Date().getFullYear()} Nexora AI · Crafted by Bhumit Goyal · Remote-first, India.</span>
+          <span>© {new Date().getFullYear()} Nuvero AI · Crafted by Bhumit Goyal · Remote-first, India.</span>
           <span className="font-mono">v1.0 · shipping_at_velocity()</span>
         </div>
       </div>

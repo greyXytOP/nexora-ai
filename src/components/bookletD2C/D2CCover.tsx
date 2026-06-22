@@ -26,7 +26,7 @@ export function D2CCover() {
             </span>
             <div className="flex flex-col leading-none">
               <span className="font-display text-base font-semibold tracking-tight text-[var(--color-fg)]">
-                Nexora AI
+                Nuvero AI
               </span>
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
                 est. 2024 · remote · india

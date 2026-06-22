@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import { toast } from "sonner";
+import { Send, Loader2, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -40,12 +41,28 @@ export function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) return;
+
     setStatus("submitting");
     try {
-      await new Promise((res) => setTimeout(res, 1200));
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Request failed");
+      }
       setStatus("success");
-    } catch {
+      toast.success("Message received!", {
+        description: "We'll reply within one business day with a no-fluff perspective.",
+      });
+    } catch (err) {
       setStatus("error");
+      toast.error("Something went wrong.", {
+        description: err instanceof Error ? err.message : "Try emailing us directly at bhumitgoyal.bg@gmail.com",
+      });
     }
   }
 
@@ -170,13 +187,6 @@ export function ContactForm() {
           className={cn(inputBase, "resize-none leading-relaxed")}
         />
       </div>
-
-      {status === "error" && (
-        <div className="flex items-center gap-2.5 rounded-xl border border-[var(--color-danger)]/30 bg-[var(--color-danger)]/8 px-4 py-3 text-sm text-[var(--color-danger)]">
-          <AlertCircle className="size-4 shrink-0" />
-          <span>Something went wrong. Try emailing us directly at bhumitgoyal.bg@gmail.com</span>
-        </div>
-      )}
 
       <button
         type="submit"

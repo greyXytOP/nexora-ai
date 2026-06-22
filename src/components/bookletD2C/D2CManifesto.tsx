@@ -95,7 +95,7 @@ export function D2CManifesto() {
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
                 {q.no}
               </span>
-              <span className="size-1.5 rounded-full bg-[var(--color-accent)] shadow-[0_0_12px_2px_rgba(34,211,238,0.7)]" />
+              <span className="size-1.5 rounded-full bg-[var(--color-accent)]" />
             </div>
             <h3 className="mt-3 font-display text-[16px] font-semibold tracking-tight text-[var(--color-fg)]">
               {q.label}

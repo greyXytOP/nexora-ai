@@ -13,7 +13,7 @@ import { CtaBanner } from "@/components/home/CtaBanner";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Nexora AI is led by Bhumit Goyal — an AI engineer obsessed with shipping agentic systems that move real business metrics.",
+    "Nuvero AI is led by Bhumit Goyal — an AI engineer obsessed with shipping agentic systems that move real business metrics.",
 };
 
 export default function AboutPage() {
@@ -29,7 +29,7 @@ export default function AboutPage() {
             <div className="flex flex-col gap-6">
               <Reveal>
                 <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--color-border-strong)] glass px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-fg-muted)]">
-                  About Nexora
+                  About Nuvero
                 </span>
               </Reveal>
               <Reveal delay={0.05}>
@@ -39,7 +39,7 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.1}>
                 <p className="max-w-2xl text-pretty text-base leading-relaxed text-[var(--color-fg-muted)] md:text-lg">
-                  Nexora AI was founded on a simple belief: most businesses don't need
+                  Nuvero AI was founded on a simple belief: most businesses don't need
                   another AI vendor — they need a small, senior team that will design,
                   build, integrate, and own AI systems end-to-end. That's exactly what we do.
                 </p>

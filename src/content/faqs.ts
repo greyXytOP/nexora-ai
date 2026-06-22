@@ -5,7 +5,7 @@ export type Faq = {
 
 export const faqs: Faq[] = [
   {
-    question: "How is Nexora different from an AI tool vendor or a generic dev agency?",
+    question: "How is Nuvero different from an AI tool vendor or a generic dev agency?",
     answer:
       "We're not selling a product and we're not generalists. We design and build production AI systems that integrate into your existing stack, own the messy real-world edge cases, and stick around to optimize them. You get the strategic depth of a consultancy and the execution muscle of a senior product team.",
   },

@@ -175,7 +175,7 @@ export function D2CCaseStudy() {
           ))}
         </div>
         <span className="shrink-0 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
-          nexora-ai · case gohappy
+          nuvero-ai · case gohappy
         </span>
       </motion.div>
     </Poster>

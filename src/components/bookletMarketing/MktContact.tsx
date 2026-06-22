@@ -197,7 +197,7 @@ export function MktContact() {
               </div>
               <div className="flex flex-col items-end">
                 <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
-                  © 2026 NEXORA AI · AGENCY EDITION
+                  © 2026 NUVERO AI · AGENCY EDITION
                 </div>
                 <div className="mt-1 font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--color-fg-subtle)]">
                   08 / 08 · Agency Services Booklet

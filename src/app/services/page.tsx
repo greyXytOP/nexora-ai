@@ -7,6 +7,7 @@ import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { GlowButton } from "@/components/shared/GlowButton";
 import { CtaBanner } from "@/components/home/CtaBanner";
+import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -63,12 +64,13 @@ export default function ServicesPage() {
                       </div>
                       <div className="flex flex-wrap gap-1.5">
                         {service.tech.map((t) => (
-                          <span
+                          <Badge
                             key={t}
-                            className="rounded-full border border-[var(--color-border)] bg-white/[0.02] px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-[var(--color-fg-subtle)]"
+                            variant="outline"
+                            className="rounded-none font-mono text-[10px] uppercase tracking-wider text-[var(--color-fg-subtle)] border-[var(--color-border)]"
                           >
                             {t}
-                          </span>
+                          </Badge>
                         ))}
                       </div>
                       <GlowButton href="/contact" variant="secondary" size="sm" withArrow>

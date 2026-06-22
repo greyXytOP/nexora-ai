@@ -34,6 +34,7 @@ import {
 import { sectors } from "@/content/sectors";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Reveal } from "@/components/shared/Reveal";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const sectorIcons: Record<string, React.ElementType> = {
   marketing: Megaphone,
@@ -75,7 +76,7 @@ function ServiceCard({ service, index }: { service: { name: string; tagline: str
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: index * 0.05 }}
       className={`border border-[var(--color-border)] transition-all duration-200 ${
         open
@@ -143,9 +144,6 @@ function ServiceCard({ service, index }: { service: { name: string; tagline: str
 }
 
 export function ServicesPreview() {
-  const [activeSector, setActiveSector] = useState(sectors[0].id);
-  const current = sectors.find((s) => s.id === activeSector)!;
-
   return (
     <section className="relative border-t border-[var(--color-border)] py-24 md:py-32">
       <div className="container-x">
@@ -155,58 +153,51 @@ export function ServicesPreview() {
           subtitle="Either choose from existing solved problems, or contact us for custom AI tools — we build to fit, not the other way around."
         />
 
-        {/* Sector selector */}
         <Reveal delay={0.12}>
-          <div className="mt-14 overflow-x-auto border border-[var(--color-border)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <div className="flex min-w-max">
-              {sectors.map((s) => {
-                const Icon = sectorIcons[s.id];
-                const active = s.id === activeSector;
-                return (
-                  <button
-                    key={s.id}
-                    onClick={() => setActiveSector(s.id)}
-                    className={`flex min-h-[44px] items-center gap-2 border-r border-[var(--color-border)] px-5 py-3 text-sm font-semibold transition-all duration-200 last:border-r-0 ${
-                      active
-                        ? "bg-[var(--color-brand)] text-white"
-                        : "text-[var(--color-fg-muted)] hover:bg-[var(--color-bg-elev)] hover:text-[var(--color-fg)]"
-                    }`}
-                  >
-                    <Icon className="size-4" />
-                    {s.label}
-                  </button>
-                );
-              })}
+          <Tabs defaultValue={sectors[0].id} className="mt-14">
+            {/* Sector selector — keyboard-navigable via arrow keys */}
+            <div className="overflow-x-auto border border-[var(--color-border)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <TabsList className="flex h-auto min-w-max w-full justify-start rounded-none bg-transparent p-0">
+                {sectors.map((s) => {
+                  const Icon = sectorIcons[s.id];
+                  return (
+                    <TabsTrigger
+                      key={s.id}
+                      value={s.id}
+                      className="flex min-h-[44px] items-center gap-2 border-r border-[var(--color-border)] px-5 py-3 text-sm font-semibold rounded-none transition-all duration-200 last:border-r-0 text-[var(--color-fg-muted)] shadow-none hover:bg-[var(--color-bg-elev)] hover:text-[var(--color-fg)] data-[state=active]:bg-[var(--color-brand)] data-[state=active]:text-white data-[state=active]:shadow-none"
+                    >
+                      <Icon className="size-4" />
+                      {s.label}
+                    </TabsTrigger>
+                  );
+                })}
+              </TabsList>
             </div>
-          </div>
+
+            {/* Content panels */}
+            {sectors.map((s) => (
+              <TabsContent
+                key={s.id}
+                value={s.id}
+                className="mt-0 border border-t-0 border-[var(--color-border)] p-6 md:p-8 data-[state=active]:animate-tab-fade-in"
+              >
+                <div className="mb-6 flex items-start gap-3">
+                  <div className="flex flex-col gap-1">
+                    <span className="font-display text-lg font-semibold tracking-tight text-[var(--color-fg)]">
+                      {s.label}
+                    </span>
+                    <p className="text-sm text-[var(--color-fg-muted)]">{s.description}</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+                  {s.services.map((service, i) => (
+                    <ServiceCard key={service.name} service={service} index={i} />
+                  ))}
+                </div>
+              </TabsContent>
+            ))}
+          </Tabs>
         </Reveal>
-
-        {/* Active sector panel */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeSector}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-0 border border-t-0 border-[var(--color-border)] p-6 md:p-8"
-          >
-            <div className="mb-6 flex items-start gap-3">
-              <div className="flex flex-col gap-1">
-                <span className="font-display text-lg font-semibold tracking-tight text-[var(--color-fg)]">
-                  {current.label}
-                </span>
-                <p className="text-sm text-[var(--color-fg-muted)]">{current.description}</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-              {current.services.map((service, i) => (
-                <ServiceCard key={service.name} service={service} index={i} />
-              ))}
-            </div>
-          </motion.div>
-        </AnimatePresence>
 
         {/* CTA section */}
         <Reveal delay={0.1}>
