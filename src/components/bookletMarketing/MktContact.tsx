@@ -41,7 +41,7 @@ const channels = [
   {
     icon: Globe,
     label: "Website",
-    value: "nexora-ai.vercel.app",
+    value: "nuvero.space",
     href: site.url,
     note: "Live work, services & booking",
   },

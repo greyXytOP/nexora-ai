@@ -4,7 +4,7 @@ export const site = {
   tagline: "You run it, we handle it.",
   description:
     "Nuvero AI is a boutique AI consultancy designing agentic systems, voice agents, and intelligent workflows that compound revenue, slash manual ops, and put your business on autopilot.",
-  url: "https://nexora-ai.vercel.app",
+  url: "https://nuvero.space",
   ogImage: "/og.png",
   founder: {
     name: "Bhumit Goyal",

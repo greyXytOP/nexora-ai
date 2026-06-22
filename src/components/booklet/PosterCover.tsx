@@ -117,7 +117,7 @@ export function PosterCover() {
             </span>
             <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
               <Globe className="size-3 text-[var(--color-accent)]" />
-              nexora-ai.vercel.app
+              nuvero.space
             </span>
           </motion.div>
         </div>
