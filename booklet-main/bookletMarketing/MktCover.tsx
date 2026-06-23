@@ -26,7 +26,7 @@ export function MktCover() {
             </span>
             <div className="flex flex-col leading-none">
               <span className="font-display text-base font-semibold tracking-tight text-[var(--color-fg)]">
-                Nuvero AI
+                Nexora AI
               </span>
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
                 est. 2024 · remote · india
@@ -97,18 +97,18 @@ export function MktCover() {
             transition={{ delay: 0.7, duration: 0.7 }}
             className="flex flex-col items-end gap-2 text-right"
           >
-            <a href={`mailto:${site.contact.email}`} className="inline-flex items-center gap-1.5 text-[11px] text-(--color-fg-muted) hover:text-(--color-fg)">
+            <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
               <Mail className="size-3 text-[var(--color-accent)]" />
               {site.contact.email}
-            </a>
-            <a href={site.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[11px] text-(--color-fg-muted) hover:text-(--color-fg)">
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
               <Globe className="size-3 text-[var(--color-accent)]" />
-              nuvero.space
-            </a>
-            <a href={`tel:${site.contact.phoneRaw}`} className="inline-flex items-center gap-1.5 text-[11px] text-(--color-fg-muted) hover:text-(--color-fg)">
+              nexora-ai.vercel.app
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
               <Phone className="size-3 text-[var(--color-accent)]" />
               {site.contact.phone}
-            </a>
+            </span>
           </motion.div>
         </div>
 

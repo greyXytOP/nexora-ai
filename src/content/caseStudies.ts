@@ -12,6 +12,7 @@ export type CaseStudy = {
   results: { metric: string; label: string }[];
   tech: string[];
   gradient: string;
+  image?: string;
   featured?: boolean;
 };
 
@@ -27,6 +28,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2025",
     featured: true,
     gradient: "from-violet-500/40 via-fuchsia-500/20 to-cyan-500/30",
+    image: "/proj-southwest-voice.jpeg",
     challenge:
       "Southwest Gases was losing 22% of inbound calls to abandonment during peak hours and burning ops budget on after-hours staffing. The marketing team also had a backlog of warm leads that nobody had time to call.",
     approach: [
@@ -59,6 +61,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2025",
     featured: true,
     gradient: "from-cyan-500/40 via-teal-500/20 to-violet-500/30",
+    image: "/proj-gohappy.jpeg",
     challenge:
       "GoHappy's members range from 55 to 92, message in 6 different languages, and ask everything from event RSVPs to insurance claim status. The support team was overwhelmed and response times were creeping past 8 hours.",
     approach: [
@@ -91,6 +94,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2024–2026",
     featured: true,
     gradient: "from-fuchsia-500/40 via-violet-500/20 to-cyan-500/30",
+    image: "/proj-multi-client.jpeg",
     challenge:
       "Agency and SaaS clients were paying $2–4 per verified B2B lead — and still getting 18% bounce rates. The cost of pipeline was eating their unit economics alive.",
     approach: [
@@ -122,6 +126,7 @@ export const caseStudies: CaseStudy[] = [
     duration: "Ongoing",
     year: "2024–2026",
     gradient: "from-violet-500/40 via-cyan-500/20 to-fuchsia-500/30",
+    image: "/proj-marketing.jpeg",
     challenge:
       "Marketing teams were spending 4–5 days per campaign on copy variants, asset cuts, sequence wiring, and reply triage. Quality varied wildly between SDRs and conversion data took weeks to make sense of.",
     approach: [

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, Calendar, Building2 } from "lucide-react";
 import { caseStudies, getCaseStudy } from "@/content/caseStudies";
 import { GradientOrb } from "@/components/shared/GradientOrb";
@@ -114,8 +115,12 @@ export default async function CaseStudyPage({
 
       <section className="container-x">
         <Reveal>
-          <div className={cn("relative aspect-[16/7] overflow-hidden rounded-2xl bg-gradient-to-br", study.gradient)}>
-            <div className="absolute inset-0 grid-bg opacity-30" />
+          <div className={cn("relative aspect-[16/7] overflow-hidden rounded-2xl", study.image ? "bg-black" : cn("bg-gradient-to-br", study.gradient))}>
+            {study.image ? (
+              <Image src={study.image} alt={study.client} fill className="object-cover opacity-80" priority />
+            ) : (
+              <div className="absolute inset-0 grid-bg opacity-30" />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-transparent" />
           </div>
         </Reveal>

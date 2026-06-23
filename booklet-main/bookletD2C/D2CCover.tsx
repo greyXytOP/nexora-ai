@@ -1,19 +1,19 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Megaphone, Mail, Phone, Globe } from "lucide-react";
+import { ShoppingBag, Mail, Phone, Globe } from "lucide-react";
 import { site } from "@/content/site";
 import { Poster } from "@/components/booklet/Poster";
 import { PosterDecor } from "@/components/booklet/PosterDecor";
 
-export function MktCover() {
+export function D2CCover() {
   return (
     <Poster page="01 / 08" section="Cover" showWatermark={false}>
       <PosterDecor
         grid
         orbs={[
-          { tone: "accent", size: 520, className: "-top-40 -left-40", animated: true },
-          { tone: "brand", size: 440, className: "-bottom-32 -right-32", animated: true },
+          { tone: "brand", size: 520, className: "-top-40 -left-40", animated: true },
+          { tone: "accent", size: 440, className: "-bottom-32 -right-32", animated: true },
           { tone: "fuchsia", size: 320, className: "top-1/3 right-10", animated: true },
         ]}
       />
@@ -26,7 +26,7 @@ export function MktCover() {
             </span>
             <div className="flex flex-col leading-none">
               <span className="font-display text-base font-semibold tracking-tight text-[var(--color-fg)]">
-                Nuvero AI
+                Nexora AI
               </span>
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
                 est. 2024 · remote · india
@@ -40,8 +40,8 @@ export function MktCover() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="poster-eyebrow"
           >
-            <Megaphone className="size-3 text-[var(--color-accent)]" />
-            For Marketing &amp; Digital Agencies · 2026 Edition
+            <ShoppingBag className="size-3 text-[var(--color-accent)]" />
+            For D2C &amp; E-Commerce Brands · 2026 Edition
           </motion.div>
         </div>
 
@@ -50,15 +50,15 @@ export function MktCover() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="poster-title mt-5 text-[56px] leading-[0.96]"
+            className="poster-title mt-5 text-[60px] leading-[0.96]"
           >
-            <span className="text-gradient-brand">White-label automation</span>
+            <span className="text-gradient-brand">An AI store team</span>
             <br />
-            <span className="text-gradient">and dashboards</span>
+            <span className="text-gradient">that knows every</span>
             <br />
-            that make your agency
+            customer
             <br />
-            <span className="text-[var(--color-fg-muted)]">look bigger.</span>
+            <span className="text-[var(--color-fg-muted)]">by name.</span>
           </motion.h1>
 
           <motion.p
@@ -67,9 +67,10 @@ export function MktCover() {
             transition={{ delay: 0.45, duration: 0.7 }}
             className="mt-7 max-w-[150mm] text-pretty text-[14px] leading-[1.55] text-[var(--color-fg-muted)]"
           >
-            A boutique AI consultancy building the workflow automation, client
-            dashboards, and reporting infrastructure that agencies resell under their own name. This means your team
-            spends less time on manual ops and more time on the work clients actually pay for.
+            A boutique AI consultancy that builds brand-aware chatbots, AI stylists, voice
+            order-confirmation agents, and full-funnel retention systems for D2C and
+            e-commerce brands. Everything wires directly into Shopify, WhatsApp, and your
+            existing stack.
           </motion.p>
         </div>
 
@@ -97,22 +98,22 @@ export function MktCover() {
             transition={{ delay: 0.7, duration: 0.7 }}
             className="flex flex-col items-end gap-2 text-right"
           >
-            <a href={`mailto:${site.contact.email}`} className="inline-flex items-center gap-1.5 text-[11px] text-(--color-fg-muted) hover:text-(--color-fg)">
+            <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
               <Mail className="size-3 text-[var(--color-accent)]" />
               {site.contact.email}
-            </a>
-            <a href={site.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[11px] text-(--color-fg-muted) hover:text-(--color-fg)">
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
               <Globe className="size-3 text-[var(--color-accent)]" />
-              nuvero.space
-            </a>
-            <a href={`tel:${site.contact.phoneRaw}`} className="inline-flex items-center gap-1.5 text-[11px] text-(--color-fg-muted) hover:text-(--color-fg)">
+              nexora-ai.vercel.app
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
               <Phone className="size-3 text-[var(--color-accent)]" />
               {site.contact.phone}
-            </a>
+            </span>
           </motion.div>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,var(--color-accent),var(--color-brand),transparent)] opacity-60" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,var(--color-brand),var(--color-accent),transparent)] opacity-60" />
       </div>
     </Poster>
   );

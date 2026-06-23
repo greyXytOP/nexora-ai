@@ -98,18 +98,18 @@ export function D2CCover() {
             transition={{ delay: 0.7, duration: 0.7 }}
             className="flex flex-col items-end gap-2 text-right"
           >
-            <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
+            <a href={`mailto:${site.contact.email}`} className="inline-flex items-center gap-1.5 text-[11px] text-(--color-fg-muted) hover:text-(--color-fg)">
               <Mail className="size-3 text-[var(--color-accent)]" />
               {site.contact.email}
-            </span>
-            <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
+            </a>
+            <a href={site.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[11px] text-(--color-fg-muted) hover:text-(--color-fg)">
               <Globe className="size-3 text-[var(--color-accent)]" />
               nuvero.space
-            </span>
-            <span className="inline-flex items-center gap-1.5 text-[11px] text-[var(--color-fg-muted)]">
+            </a>
+            <a href={`tel:${site.contact.phoneRaw}`} className="inline-flex items-center gap-1.5 text-[11px] text-(--color-fg-muted) hover:text-(--color-fg)">
               <Phone className="size-3 text-[var(--color-accent)]" />
               {site.contact.phone}
-            </span>
+            </a>
           </motion.div>
         </div>
 

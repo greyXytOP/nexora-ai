@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { ArrowUpRight, ExternalLink, Mic, Bot, Megaphone, Truck, Target, Search } from "lucide-react";
 import { SectionHeader } from "@/components/shared/SectionHeader";
@@ -14,6 +15,7 @@ type WorkItem = {
   highlights: string[];
   impact: { metric: string; label: string }[];
   gradient: string;
+  image?: string;
   icon: React.ElementType;
   badge?: string;
   openSource?: boolean;
@@ -38,6 +40,7 @@ const workItems: WorkItem[] = [
       { metric: "0", label: "manual call notes entered" },
     ],
     gradient: "from-violet-500/35 via-fuchsia-500/20 to-cyan-500/25",
+    image: "/proj-southwest-voice.jpeg",
   },
   {
     no: "02",
@@ -57,6 +60,7 @@ const workItems: WorkItem[] = [
       { metric: "<50ms", label: "response time on cached queries" },
     ],
     gradient: "from-cyan-500/35 via-teal-500/20 to-violet-500/25",
+    image: "/proj-gohappy.jpeg",
   },
   {
     no: "03",
@@ -76,6 +80,7 @@ const workItems: WorkItem[] = [
       { metric: "100%", label: "consistent brand voice, every time" },
     ],
     gradient: "from-violet-500/30 via-cyan-500/20 to-fuchsia-500/25",
+    image: "/proj-marketing.jpeg",
   },
   {
     no: "04",
@@ -95,6 +100,7 @@ const workItems: WorkItem[] = [
       { metric: "Full", label: "audit trail of every change made" },
     ],
     gradient: "from-fuchsia-500/25 via-violet-500/20 to-cyan-500/20",
+    image: "/proj-southwest-delivery.jpeg",
   },
   {
     no: "05",
@@ -114,6 +120,7 @@ const workItems: WorkItem[] = [
       { metric: "$0.11", label: "average cost per verified lead" },
     ],
     gradient: "from-cyan-500/25 via-fuchsia-500/20 to-violet-500/25",
+    image: "/proj-multi-client.jpeg",
   },
   {
     no: "06",
@@ -133,6 +140,7 @@ const workItems: WorkItem[] = [
       { metric: "$0", label: "recurring tool or data cost" },
     ],
     gradient: "from-teal-500/30 via-cyan-500/20 to-violet-500/20",
+    image: "/proj-sba.jpeg",
     openSource: true,
   },
 ];
@@ -146,8 +154,12 @@ function WorkCard({ item }: { item: WorkItem }) {
       className="relative flex shrink-0 flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-elev)] transition-colors hover:border-[var(--color-brand)]"
       style={{ width: CARD_W_DESKTOP }}
     >
-      <div className={`relative h-[110px] bg-gradient-to-br ${item.gradient} overflow-hidden`}>
-        <div className="absolute inset-0 grid-bg opacity-30" />
+      <div className={`relative h-[110px] overflow-hidden ${item.image ? "bg-black" : `bg-gradient-to-br ${item.gradient}`}`}>
+        {item.image ? (
+          <Image src={item.image} alt={item.client} fill className="object-cover opacity-80 transition-transform duration-500 group-hover:scale-105" />
+        ) : (
+          <div className="absolute inset-0 grid-bg opacity-30" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-elev)]/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4">
           <div>
