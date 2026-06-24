@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Radar, Megaphone } from "lucide-react";
@@ -55,13 +55,13 @@ export function PosterServiceSpotlight2() {
             icon: Radar,
             tone: "brand",
             title: "AI Lead Generation",
-            tagline: "Pipeline on tap — enriched, verified, ready to close.",
+            tagline: "Pipeline on tap enriched, verified, ready to close.",
             problem:
               "Buying lists is a graveyard. Manual prospecting is the most expensive way to fill a CRM with bounces.",
             solution: [
               "Targeted LinkedIn scraping aligned to your ICP signals",
               "Multi-source enrichment (firmographics, tech stack, hiring intent)",
-              "Cascaded email verification across providers — pay pennies",
+              "Cascaded email verification across providers pay pennies",
               "Personalized first-touch openers per lead",
             ],
             tech: ["Apollo", "Apify", "Clearbit", "NeverBounce", "OpenAI"],
@@ -76,7 +76,7 @@ export function PosterServiceSpotlight2() {
             title: "AI Marketing Automation",
             tagline: "Campaigns that write, test, and optimize themselves.",
             problem:
-              "Your team spends 80% of the week on busywork — drafts, replies, repurposing — and 20% on the strategy that actually moves the needle.",
+              "Your team spends 80% of the week on busywork drafts, replies, repurposing and 20% on the strategy that actually moves the needle.",
             solution: [
               "Full campaign generation: copy, subject lines, LPs, follow-ups",
               "AI reply triage that drafts, sends, or queues for review",

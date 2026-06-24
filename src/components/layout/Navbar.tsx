@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -77,7 +77,7 @@ export function Navbar() {
         <div className="container-x flex h-16 items-center justify-between md:h-18">
           <Logo />
 
-          {/* Desktop nav — NavigationMenu */}
+          {/* Desktop nav NavigationMenu */}
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList className="gap-0 space-x-0">
               {/* What We Offer */}
@@ -89,7 +89,7 @@ export function Navbar() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
-              {/* Services — plain link */}
+              {/* Services plain link */}
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link href="/services" className={navLinkClass("/services")}>

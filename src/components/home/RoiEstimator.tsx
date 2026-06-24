@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Slider } from "@/components/ui/slider";
@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const LEVELS = [
-  { max: 30, label: "Automation starter", desc: "Good foundation — a few quick wins available." },
+  { max: 30, label: "Automation starter", desc: "Good foundation a few quick wins available." },
   { max: 65, label: "Clear automation wins", desc: "Real bottlenecks exist. Right time to move." },
   { max: 100, label: "High-impact opportunity", desc: "Significant manual drag. AI would compound fast here." },
 ];
@@ -48,7 +48,7 @@ export function RoiEstimator() {
         <SectionHeader
           eyebrow="Automation Audit"
           title="How much of your week is already on autopilot?"
-          subtitle="Drag the sliders. Get an honest read on where your team's time is going — and what AI would target first."
+          subtitle="Drag the sliders. Get an honest read on where your team's time is going and what AI would target first."
         />
 
         <Reveal delay={0.1}>
@@ -143,7 +143,7 @@ export function RoiEstimator() {
                     />
                   </div>
                   <p className="text-xs font-semibold text-[var(--color-fg-muted)]">
-                    {level.label} — <span className="font-normal text-[var(--color-fg-subtle)]">{level.desc}</span>
+                    {level.label} <span className="font-normal text-[var(--color-fg-subtle)]">{level.desc}</span>
                   </p>
                 </div>
 

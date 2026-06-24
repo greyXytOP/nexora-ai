@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { GradientOrb } from "@/components/shared/GradientOrb";
 import { GridBackground } from "@/components/shared/GridBackground";
 import { GlowButton } from "@/components/shared/GlowButton";
@@ -19,7 +19,7 @@ export default function NotFound() {
         </h1>
         <p className="max-w-xl text-pretty text-[var(--color-fg-muted)] md:text-lg">
           The page you're looking for doesn't exist, has moved, or was never published.
-          Head home or reach out — we'll find what you need.
+          Head home or reach out we'll find what you need.
         </p>
         <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row">
           <GlowButton href="/" size="lg" withArrow>

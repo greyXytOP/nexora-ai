@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -96,7 +96,7 @@ export function PosterContact() {
         >
           One 30-minute discovery call, no slides, no NDA. We&rsquo;ll map the two
           or three highest-leverage AI opportunities in your business and tell
-          you — straight — whether it&rsquo;s worth shipping, what it&rsquo;ll cost,
+          you straight whether it&rsquo;s worth shipping, what it&rsquo;ll cost,
           and how fast we can have it live.
         </motion.p>
 

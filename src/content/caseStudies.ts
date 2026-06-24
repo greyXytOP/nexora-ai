@@ -1,4 +1,4 @@
-export type CaseStudy = {
+﻿export type CaseStudy = {
   slug: string;
   client: string;
   industry: string;
@@ -21,9 +21,9 @@ export const caseStudies: CaseStudy[] = [
     slug: "southwest-gases-voice-concierge",
     client: "Southwest Gases",
     industry: "Energy & Utilities",
-    title: "An always-on voice concierge that handles every inbound call — and books outbound pitches in its spare time.",
+    title: "An always-on voice concierge that handles every inbound call and books outbound pitches in its spare time.",
     summary:
-      "A natural-language voice agent that fields every customer call, navigates account-specific data, and runs outbound campaigns for the marketing team — without ever sounding like a bot.",
+      "A natural-language voice agent that fields every customer call, navigates account-specific data, and runs outbound campaigns for the marketing team without ever sounding like a bot.",
     duration: "9 weeks",
     year: "2025",
     featured: true,
@@ -32,10 +32,10 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "Southwest Gases was losing 22% of inbound calls to abandonment during peak hours and burning ops budget on after-hours staffing. The marketing team also had a backlog of warm leads that nobody had time to call.",
     approach: [
-      "Mapped every inbound call type — billing, outages, new connections, complaints — into a tiered intent model.",
+      "Mapped every inbound call type billing, outages, new connections, complaints into a tiered intent model.",
       "Indexed customer records, plan documents, and SOPs into a secure retrieval layer the agent could query at sub-second latency.",
       "Designed a brand-aligned voice persona with regional accent calibration and explicit fallbacks for sensitive intents (medical hardship, payment disputes).",
-      "Wired a parallel outbound mode for the marketing team — same brain, different objective, full opt-out compliance.",
+      "Wired a parallel outbound mode for the marketing team same brain, different objective, full opt-out compliance.",
     ],
     solution: [
       "24/7 inbound voice agent answering on the first ring across all 18 service regions.",
@@ -54,7 +54,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "gohappy-club-member-assistant",
     client: "GoHappy Club",
     industry: "Senior Wellness · D2C",
-    title: "An omnichannel WhatsApp + in-app assistant that knows every member by name — and when to escalate.",
+    title: "An omnichannel WhatsApp + in-app assistant that knows every member by name and when to escalate.",
     summary:
       "A multilingual conversational AI for a senior-citizen membership club, delivering tailored answers across WhatsApp and in-app, with memory, tone-matching, and clean escalation to humans for finance and medical questions.",
     duration: "12 weeks",
@@ -89,17 +89,17 @@ export const caseStudies: CaseStudy[] = [
     industry: "B2B SaaS & Agencies",
     title: "A LinkedIn lead-intelligence engine that delivers verified, enriched, ready-to-pitch prospects for cents on the dollar.",
     summary:
-      "A custom lead-gen system that scrapes targeted LinkedIn audiences, enriches via 6 data sources, cascades email verification across cheap APIs, and outputs personalized openers — all in one script tailored per client.",
+      "A custom lead-gen system that scrapes targeted LinkedIn audiences, enriches via 6 data sources, cascades email verification across cheap APIs, and outputs personalized openers all in one script tailored per client.",
     duration: "Ongoing",
     year: "2024–2026",
     featured: true,
     gradient: "from-fuchsia-500/40 via-violet-500/20 to-cyan-500/30",
     image: "/proj-multi-client.jpeg",
     challenge:
-      "Agency and SaaS clients were paying $2–4 per verified B2B lead — and still getting 18% bounce rates. The cost of pipeline was eating their unit economics alive.",
+      "Agency and SaaS clients were paying $2–4 per verified B2B lead and still getting 18% bounce rates. The cost of pipeline was eating their unit economics alive.",
     approach: [
       "Built modular ICP filters per client (industry, headcount, tech stack, funding, hiring signals).",
-      "Cascaded enrichment across Apollo, Clearbit, and proprietary scrapers — fall through only when needed.",
+      "Cascaded enrichment across Apollo, Clearbit, and proprietary scrapers fall through only when needed.",
       "Verified emails through a price-aware waterfall (NeverBounce → ZeroBounce → MailboxValidator) that picked the cheapest API likely to succeed.",
       "Generated 3 personalized opener variants per lead using contextual signals (recent posts, mutual connections, news).",
     ],
@@ -122,7 +122,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Marketing Agencies · DTC",
     title: "Campaign orchestrator that cuts setup time by 80% and lifts reply quality across every channel.",
     summary:
-      "An AI-powered campaign engine that drafts copy, generates assets, handles replies, and continuously A/B tests across email, LinkedIn, and SMS — turning a week of campaign setup into an afternoon.",
+      "An AI-powered campaign engine that drafts copy, generates assets, handles replies, and continuously A/B tests across email, LinkedIn, and SMS turning a week of campaign setup into an afternoon.",
     duration: "Ongoing",
     year: "2024–2026",
     gradient: "from-violet-500/40 via-cyan-500/20 to-fuchsia-500/30",
@@ -185,7 +185,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Logistics & Supply Chain",
     title: "An internal ops copilot that turns 800 pages of SOPs into instant, accurate answers in Slack.",
     summary:
-      "A retrieval-augmented copilot that ingests SOPs, vendor contracts, and tariff schedules, then answers ops questions in Slack with citations — slashing onboarding time and reducing costly routing errors.",
+      "A retrieval-augmented copilot that ingests SOPs, vendor contracts, and tariff schedules, then answers ops questions in Slack with citations slashing onboarding time and reducing costly routing errors.",
     duration: "8 weeks",
     year: "2025",
     gradient: "from-violet-500/40 via-fuchsia-500/30 to-cyan-500/40",
@@ -216,14 +216,14 @@ export const caseStudies: CaseStudy[] = [
     industry: "Marketing & Media",
     title: "A content engine that 10x'd a creative agency's output without diluting the brand voice.",
     summary:
-      "An end-to-end AI content pipeline for a boutique creative agency — blog posts, video scripts, ad creative, and social cuts shipped in brand voice, with human editors orchestrating instead of typing.",
+      "An end-to-end AI content pipeline for a boutique creative agency blog posts, video scripts, ad creative, and social cuts shipped in brand voice, with human editors orchestrating instead of typing.",
     duration: "10 weeks",
     year: "2025",
     gradient: "from-fuchsia-500/40 via-cyan-500/20 to-violet-500/30",
     challenge:
       "Lumina was turning down retainer expansions because their senior writers were maxed out. Hiring more was slow, expensive, and risked diluting the distinctive voice clients paid premiums for.",
     approach: [
-      "Reverse-engineered Lumina's voice into a prompt library — tone, cadence, signature phrases, and forbidden words.",
+      "Reverse-engineered Lumina's voice into a prompt library tone, cadence, signature phrases, and forbidden words.",
       "Built per-client style profiles layered on top of the house voice so each brand still felt unmistakably theirs.",
       "Designed a brief → outline → draft → fact-check → editorial review pipeline with humans only on the high-leverage steps.",
       "Wired a repurposing engine that turned every long-form asset into a LinkedIn carousel, X thread, IG reel script, and newsletter blurb.",
@@ -247,7 +247,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "B2B SaaS",
     title: "A sales operations copilot that gave a 40-person sales team a 7-figure forecasting edge.",
     summary:
-      "An AI sales-ops layer over Salesforce — auto-enriching every deal, summarizing every call, and surfacing pipeline risk to leadership before it became a missed quarter.",
+      "An AI sales-ops layer over Salesforce auto-enriching every deal, summarizing every call, and surfacing pipeline risk to leadership before it became a missed quarter.",
     duration: "11 weeks",
     year: "2025",
     gradient: "from-violet-500/40 via-cyan-500/20 to-fuchsia-500/30",
@@ -257,7 +257,7 @@ export const caseStudies: CaseStudy[] = [
       "Connected Salesforce, Gong, Slack, and Gmail into a single deal graph.",
       "Built an enrichment agent that pulled call summaries, MEDDIC fields, next steps, and risk signals into every opportunity automatically.",
       "Trained a forecast model on 3 years of historical close data with confidence intervals.",
-      "Set up Slack nudges to reps the moment a deal showed risk signals — stale activity, ghosted champion, competitor mention.",
+      "Set up Slack nudges to reps the moment a deal showed risk signals stale activity, ghosted champion, competitor mention.",
     ],
     solution: [
       "CRM auto-hygiene running continuously across every active deal.",
@@ -273,66 +273,35 @@ export const caseStudies: CaseStudy[] = [
     tech: ["Salesforce", "Gong", "Claude", "Slack", "Supabase", "Snowflake"],
   },
   {
-    slug: "pulse-talent-ai-recruiter",
-    client: "Pulse Talent",
-    industry: "Recruiting & HR",
-    title: "An AI recruiter that sources, screens, and schedules — turning a 6-week hire cycle into 9 days.",
+    slug: "signature-global-tenant-ops",
+    client: "Signature Global",
+    industry: "Real Estate",
+    title: "An AI-powered tenant ops system that eliminated manual follow-ups and cut vacancy turnaround by half.",
     summary:
-      "A full-stack recruiting copilot for a high-volume staffing agency: passive sourcing on LinkedIn and GitHub, conversational pre-screens, and auto-scheduling that fills interviewer calendars without ping-pong.",
-    duration: "8 weeks",
+      "A full-stack property management automation for a large residential developer handling tenant communication, lease renewals, maintenance routing, and payment reminders without a single manual touchpoint.",
+    duration: "10 weeks",
     year: "2026",
-    gradient: "from-cyan-500/40 via-fuchsia-500/30 to-violet-500/40",
+    gradient: "from-teal-500/40 via-cyan-500/20 to-violet-500/30",
     challenge:
-      "Pulse was losing top candidates to faster competitors. Recruiters spent 70% of their day on resume triage and calendar Tetris instead of building relationships with hiring managers.",
+      "Signature Global managed 1,200+ residential units across 6 projects. Their small property management team was drowning in WhatsApp messages, missed renewal windows were causing 90-day vacancy gaps, and maintenance tickets were falling through the cracks.",
     approach: [
-      "Built a sourcing agent that searched LinkedIn and GitHub against role-specific ICPs and crafted personalized openers.",
-      "Designed a conversational pre-screen that did 15-minute intake interviews over WhatsApp at any hour.",
-      "Scored every candidate against the JD with a transparent rubric the recruiters trusted.",
-      "Auto-scheduled interviews across multiple interviewer calendars with timezone-aware logic and graceful reschedules.",
+      "Mapped every tenant touchpoint onboarding, maintenance, renewals, complaints, move-out into automated sequences.",
+      "Built a WhatsApp-first communication layer that handled inbound queries and sent proactive updates without manual intervention.",
+      "Designed a lease renewal engine that triggered personalised offers 90, 60, and 30 days before expiry.",
+      "Wired a maintenance routing system that triaged severity, assigned vendors, and sent tenant status updates automatically.",
     ],
     solution: [
-      "Passive sourcing pipeline delivering 40+ qualified candidates per role per week.",
-      "Conversational pre-screen running 24/7 with structured outputs into Greenhouse.",
-      "Calendar agent eliminating recruiter-coordinator back-and-forth.",
-      "Quality dashboard tracking funnel conversion and hiring manager satisfaction.",
+      "24/7 WhatsApp bot handling all tenant queries, maintenance requests, and payment reminders.",
+      "Automated lease renewal sequences with e-sign integration, reducing vacancy gaps significantly.",
+      "Vendor dispatch system that assigned and tracked maintenance jobs from ticket to completion.",
+      "Weekly ops digest for the property manager open tickets, upcoming renewals, payment status.",
     ],
     results: [
-      { metric: "9 days", label: "median time-to-hire, down from 6 weeks" },
-      { metric: "3.5×", label: "more qualified candidates per recruiter" },
-      { metric: "68%", label: "drop in coordination overhead" },
+      { metric: "52%", label: "reduction in vacancy turnaround time" },
+      { metric: "89%", label: "of tenant queries resolved without human involvement" },
+      { metric: "₹1.1Cr", label: "in recovered revenue from renewed leases" },
     ],
-    tech: ["Greenhouse", "LinkedIn", "Calendly", "WhatsApp", "Claude", "Whisper"],
-  },
-  {
-    slug: "atlas-ventures-portfolio-copilot",
-    client: "Atlas Ventures",
-    industry: "Venture Capital & PE",
-    title: "A portfolio-ops copilot that gave 8 partners the leverage of a 40-person back office.",
-    summary:
-      "An internal AI copilot for a mid-stage VC firm — ingesting board decks, financial reports, founder updates, and market intel into a single brain partners can query in plain English.",
-    duration: "14 weeks",
-    year: "2025",
-    gradient: "from-violet-500/40 via-fuchsia-500/30 to-cyan-500/40",
-    challenge:
-      "Atlas's 8 partners managed 42 portfolio companies. Tracking metrics, surfacing risks, and prepping for board meetings was eating their week — and important signals were being missed in the noise.",
-    approach: [
-      "Ingested 4 years of board decks, KPI updates, founder emails, and market reports into a permissioned retrieval layer.",
-      "Built a Slack copilot that partners could ask anything from 'what's Acme's net revenue retention trend?' to 'which portcos are showing burn-rate risk?'",
-      "Auto-generated weekly portfolio digests with anomaly flags and suggested actions.",
-      "Built a market-intel agent that scanned news, funding announcements, and product launches for portco-relevant signals.",
-    ],
-    solution: [
-      "Slack-native partner copilot with citation-linked answers across the full portfolio data room.",
-      "Weekly portfolio health digest with risk and opportunity flags.",
-      "Board prep automation: agenda, KPI deck draft, and discussion prompts in one click.",
-      "Competitive-intel monitoring across every portco's market.",
-    ],
-    results: [
-      { metric: "14hrs", label: "saved per partner per week" },
-      { metric: "3", label: "early risk signals caught before quarterly review" },
-      { metric: "100%", label: "of board meetings prepped via the copilot" },
-    ],
-    tech: ["LangChain", "Pinecone", "Slack", "Claude", "Notion", "Supabase"],
+    tech: ["WhatsApp Cloud API", "n8n", "Supabase", "Claude", "Cal.com", "Google Sheets"],
   },
 ];
 

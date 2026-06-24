@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -150,12 +150,12 @@ export function ServicesPreview() {
         <SectionHeader
           eyebrow="Problems we have already solved"
           title="Custom AI tools, built around your problem."
-          subtitle="Either choose from existing solved problems, or contact us for custom AI tools — we build to fit, not the other way around."
+          subtitle="Either choose from existing solved problems, or contact us for custom AI tools we build to fit, not the other way around."
         />
 
         <Reveal delay={0.12}>
           <Tabs defaultValue={sectors[0].id} className="mt-14">
-            {/* Sector selector — keyboard-navigable via arrow keys */}
+            {/* Sector selector keyboard-navigable via arrow keys */}
             <div className="overflow-x-auto border border-[var(--color-border)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <TabsList className="flex h-auto min-w-max w-full justify-start rounded-none bg-transparent p-0">
                 {sectors.map((s) => {
@@ -211,7 +211,7 @@ export function ServicesPreview() {
                 <span className="text-[var(--color-brand)]">solvable.</span>
               </h3>
               <p className="mx-auto max-w-xl text-sm text-[var(--color-fg-muted)] md:text-base">
-                Give us a call or fill the form — we build personalized AI solutions to your
+                Give us a call or fill the form we build personalized AI solutions to your
                 exact problem, not generic tools dressed up for your industry.
               </p>
             </div>

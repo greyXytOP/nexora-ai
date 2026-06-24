@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Repeat2, Bot } from "lucide-react";
@@ -57,7 +57,7 @@ export function MktSpotlight2() {
             title: "AI Content Repurposing Engine",
             tagline: "One asset → 12 channel-ready cuts, in your client's brand voice.",
             problem:
-              "Your content team writes one great long-form piece and then spends three more days manually cutting it into social posts, emails, and ad copy — in a brand voice that has to be re-learned every time.",
+              "Your content team writes one great long-form piece and then spends three more days manually cutting it into social posts, emails, and ad copy in a brand voice that has to be re-learned every time.",
             solution: [
               "One asset automatically becomes 12 channel-ready cuts",
               "Brand-voice training per client, not generic AI tone",
@@ -79,7 +79,7 @@ export function MktSpotlight2() {
               "Your clients are asking you for \"AI stuff\" and you're either turning down the work or reselling a generic SaaS tool that doesn't actually solve their problem.",
             solution: [
               "Custom chatbots and voice agents built for your client's business",
-              "Shipped under your agency's brand — you own the client relationship",
+              "Shipped under your agency's brand you own the client relationship",
               "You set the markup; we handle the build and the maintenance",
               "Turns a one-off project into a recurring retainer line",
             ],

@@ -1,4 +1,4 @@
-export type Faq = {
+﻿export type Faq = {
   question: string;
   answer: string;
 };
@@ -17,7 +17,7 @@ export const faqs: Faq[] = [
   {
     question: "What does it cost?",
     answer:
-      "Strategy sprints start around $4k. Custom builds — voice agents, chatbots, marketing systems — typically range from $8k to $40k depending on integrations and scope. We share a fixed-price proposal after the discovery call, no surprises.",
+      "Strategy sprints start around $4k. Custom builds voice agents, chatbots, marketing systems typically range from $8k to $40k depending on integrations and scope. We share a fixed-price proposal after the discovery call, no surprises.",
   },
   {
     question: "Who owns the code, data, and models?",
@@ -32,7 +32,7 @@ export const faqs: Faq[] = [
   {
     question: "Which industries do you work with?",
     answer:
-      "We've shipped AI systems across energy, senior wellness, real estate, logistics, B2B SaaS, and marketing services. The pattern that matters is whether there's a repetitive, judgment-heavy workflow where AI can compound — not the industry label.",
+      "We've shipped AI systems across energy, senior wellness, real estate, logistics, B2B SaaS, and marketing services. The pattern that matters is whether there's a repetitive, judgment-heavy workflow where AI can compound not the industry label.",
   },
   {
     question: "Do you offer ongoing support after launch?",
@@ -42,6 +42,6 @@ export const faqs: Faq[] = [
   {
     question: "Can you work alongside our existing engineering team?",
     answer:
-      "Absolutely — we often do. We can lead, co-build, or hand off cleanly with full documentation. Our preference is whatever moves your business fastest.",
+      "Absolutely we often do. We can lead, co-build, or hand off cleanly with full documentation. Our preference is whatever moves your business fastest.",
   },
 ];

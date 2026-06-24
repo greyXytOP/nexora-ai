@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Bot, Sparkles } from "lucide-react";
@@ -57,7 +57,7 @@ export function D2CSpotlight1() {
             title: "Brand-Aware Customer Chatbot",
             tagline: "WhatsApp + web + in-app on one unified brain that never forgets a customer.",
             problem:
-              "Generic bots give generic answers. A customer asks about a past order or a specific fabric and the bot has no memory, no context — bounces them to a human.",
+              "Generic bots give generic answers. A customer asks about a past order or a specific fabric and the bot has no memory, no context bounces them to a human.",
             solution: [
               "WhatsApp + web + in-app on one unified brand voice, not a generic script",
               "Per-customer memory: past orders, sizes, and preferences",
@@ -76,7 +76,7 @@ export function D2CSpotlight1() {
             title: "AI Stylist / Product Advisor",
             tagline: "\"How do I style this?\" answered from your real catalog, not generic advice.",
             problem:
-              "\"How do I style this?\" is the highest-intent question a customer can ask — and most brands have no answer ready beyond a generic size chart.",
+              "\"How do I style this?\" is the highest-intent question a customer can ask and most brands have no answer ready beyond a generic size chart.",
             solution: [
               "Answers styling questions using your real catalog, not stock advice",
               "Recommends complete looks: \"customers who bought this also paired it with...\"",

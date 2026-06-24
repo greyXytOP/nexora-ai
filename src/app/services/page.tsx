@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { services } from "@/content/services";
 import { GradientOrb } from "@/components/shared/GradientOrb";
@@ -27,7 +27,7 @@ export default function ServicesPage() {
           <SectionHeader
             eyebrow="Services"
             title="AI Services Customers Are Already Using"
-            subtitle="No matter how niche your workflow is, we're here to automate it with AI. Pick a starting point or talk to us about a bundle — everything is custom-fit, integrated into your stack, and instrumented for measurable impact."
+            subtitle="No matter how niche your workflow is, we're here to automate it with AI. Pick a starting point or talk to us about a bundle everything is custom-fit, integrated into your stack, and instrumented for measurable impact."
           />
         </div>
       </section>

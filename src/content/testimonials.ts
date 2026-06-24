@@ -1,4 +1,4 @@
-export type Testimonial = {
+﻿export type Testimonial = {
   quote: string;
   name: string;
   role: string;
@@ -10,7 +10,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Didn't think AI could handle our inbound calls properly — but customers actually thank the voice agent now. We went from missing a bunch of calls to zero dropped leads, and our team stopped firefighting every morning.",
+      "Didn't think AI could handle our inbound calls properly but customers actually thank the voice agent now. We went from missing a bunch of calls to zero dropped leads, and our team stopped firefighting every morning.",
     name: "Ravi Sharma",
     role: "Operations Manager",
     company: "Southwest Gases",
@@ -19,7 +19,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Our members are 60-plus and half of them aren't great with apps. The bot Nuvero built is patient, speaks their language, and never makes them feel dumb. We got feedback saying 'it actually listens' — that's not easy to achieve.",
+      "Our members are 60-plus and half of them aren't great with apps. The bot Nuvero built is patient, speaks their language, and never makes them feel dumb. We got feedback saying 'it actually listens' that's not easy to achieve.",
     name: "Anil Rastogi",
     role: "Head of Member Experience",
     company: "GoHappy Club",
@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Running four client campaigns used to mean four people pulling reports every Monday. Now it all runs on its own and I genuinely get my weekends back. Clients haven't noticed — which is the point.",
+      "Running four client campaigns used to mean four people pulling reports every Monday. Now it all runs on its own and I genuinely get my weekends back. Clients haven't noticed which is the point.",
     name: "Rehan Khan",
     role: "Founder",
     company: "Marketrz Agency",
@@ -55,7 +55,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Instagram is where our customers talk to us and we just couldn't keep up. Now every comment gets a reply in our exact tone within seconds. Repeat purchases went up — didn't expect an automation to actually move that number.",
+      "Instagram is where our customers talk to us and we just couldn't keep up. Now every comment gets a reply in our exact tone within seconds. Repeat purchases went up didn't expect an automation to actually move that number.",
     name: "Shreya Bhatia",
     role: "Brand Manager",
     company: "Velocity Watches",

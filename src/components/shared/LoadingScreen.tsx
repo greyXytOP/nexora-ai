@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -8,7 +8,7 @@ export function LoadingScreen() {
   const [phase, setPhase] = useState<"in" | "hold" | "out">("in");
 
   useEffect(() => {
-    // skip on subsequent navigations — only show on hard load
+    // skip on subsequent navigations only show on hard load
     if (sessionStorage.getItem("nuvero_loaded")) {
       setVisible(false);
       return;
@@ -65,7 +65,7 @@ export function LoadingScreen() {
             />
           </motion.div>
 
-          {/* wordmark — letters stagger in */}
+          {/* wordmark letters stagger in */}
           <div className="flex items-baseline gap-2 font-display text-2xl font-semibold tracking-tight">
             {"Nuvero".split("").map((char, i) => (
               <motion.span

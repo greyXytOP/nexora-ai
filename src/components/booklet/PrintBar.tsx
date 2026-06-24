@@ -12,11 +12,11 @@ export function PrintBar() {
   return (
     <div className="no-print booklet-toolbar">
       <Link
-        href="/"
+        href="/booklet"
         className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-[var(--color-fg-muted)] transition-colors hover:text-[var(--color-fg)]"
       >
         <ArrowLeft className="size-3.5" />
-        Back to {site.shortName}
+        Back
       </Link>
 
       <div className="hidden items-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)] sm:inline-flex">

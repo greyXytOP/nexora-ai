@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+﻿import type { LucideIcon } from "lucide-react";
 import {
   PhoneCall,
   MessageSquareText,
@@ -31,12 +31,12 @@ export const services: Service[] = [
     title: "Custom AI Workflows & Integrations",
     tagline: "Tailored agentic systems wired into the tools you already pay for.",
     problem:
-      "Off-the-shelf SaaS handles 70%. The last 30% — the part that's actually unique to your business — is where the leverage hides.",
+      "Off-the-shelf SaaS handles 70%. The last 30% the part that's actually unique to your business is where the leverage hides.",
     solution: [
       "Bespoke agents for ops, finance, recruiting, supply chain, and beyond.",
       "Tool-use across Slack, Notion, Sheets, Drive, Jira, Stripe, and your internal APIs.",
       "Event-driven orchestration with retries, observability, and human-in-the-loop checkpoints.",
-      "Built on your stack, owned by you — no vendor lock-in, no per-seat tax.",
+      "Built on your stack, owned by you no vendor lock-in, no per-seat tax.",
     ],
     deliverables: [
       "Discovery + workflow map",
@@ -95,13 +95,13 @@ export const services: Service[] = [
   {
     slug: "ai-lead-generation",
     title: "AI-Powered Lead Generation",
-    tagline: "Pipeline on tap — enriched, verified, ready to close.",
+    tagline: "Pipeline on tap enriched, verified, ready to close.",
     problem:
       "Buying lists is a graveyard. Manual prospecting is the most expensive way to fill a CRM with bounces and dead numbers.",
     solution: [
       "Targeted LinkedIn scraping aligned to your ICP signals.",
       "Multi-source enrichment (firmographics, tech stack, hiring intent, news triggers).",
-      "Cascade email-verification across providers — pay pennies, ship validated lists.",
+      "Cascade email-verification across providers pay pennies, ship validated lists.",
       "Auto-drafted, personalized first-touch emails ready for your sequencer.",
     ],
     deliverables: [
@@ -119,7 +119,7 @@ export const services: Service[] = [
     title: "AI Marketing Automation",
     tagline: "Campaigns that write, test, and optimize themselves.",
     problem:
-      "Your team spends 80% of the week on busywork — drafting variants, chasing replies, repackaging assets — and 20% on the strategy that actually moves the needle.",
+      "Your team spends 80% of the week on busywork drafting variants, chasing replies, repackaging assets and 20% on the strategy that actually moves the needle.",
     solution: [
       "End-to-end campaign generation: copy, subject lines, landing pages, follow-ups.",
       "AI reply-handling that triages, drafts, and books meetings from your inbox.",
@@ -143,7 +143,7 @@ export const services: Service[] = [
     problem:
       "Your content calendar is a graveyard of half-finished briefs. Writers cost a fortune, agencies are slow, and your competitors are publishing while you're still in draft #3.",
     solution: [
-      "Brand-voice training so every piece sounds unmistakably like you — not a generic AI.",
+      "Brand-voice training so every piece sounds unmistakably like you not a generic AI.",
       "End-to-end pipelines: brief \u2192 outline \u2192 draft \u2192 SEO pass \u2192 internal review \u2192 publish.",
       "Multi-format repurposing: one long-form piece becomes 12 channel-ready cuts (LinkedIn, X, Instagram, YouTube Shorts, newsletter).",
       "Editorial guardrails + fact-check layer so quality holds at scale.",

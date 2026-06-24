@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -19,18 +19,18 @@ import { Poster } from "./Poster";
 import { PosterDecor } from "./PosterDecor";
 
 const domains = [
-  { icon: Briefcase, label: "Management", body: "Decisions, approvals, status — surfaced from your tools, summarized in real time.", tone: "brand" },
+  { icon: Briefcase, label: "Management", body: "Decisions, approvals, status surfaced from your tools, summarized in real time.", tone: "brand" },
   { icon: LineChart, label: "Analytics", body: "Plain-English Q&A on top of your warehouse. Charts, anomalies, and weekly digests, on tap.", tone: "accent" },
   { icon: Megaphone, label: "Marketing", body: "Campaign generation, copy variants, repurposing, and continuous A/B/n testing on autopilot.", tone: "brand" },
   { icon: Target, label: "Sales", body: "Pipeline hygiene, conversation intelligence, forecast confidence, and SDR copilots.", tone: "accent" },
   { icon: KanbanSquare, label: "Project Ops", body: "Stand-ups, ticket triage, scope creep alerts, and PM nudges baked into Slack / Linear.", tone: "brand" },
   { icon: Code2, label: "Engineering", body: "Code review assistants, PR summaries, on-call copilots, and internal SDK chatbots.", tone: "accent" },
   { icon: Gauge, label: "Dashboards", body: "Custom internal dashboards that compose live data and AI commentary in one view.", tone: "brand" },
-  { icon: Settings2, label: "Customizations", body: "The last 30% of any SaaS — the part your team actually needs — built bespoke.", tone: "accent" },
-  { icon: UserCog, label: "Personalization", body: "Per-customer experiences, per-rep playbooks, per-user memory — at scale.", tone: "brand" },
+  { icon: Settings2, label: "Customizations", body: "The last 30% of any SaaS the part your team actually needs built bespoke.", tone: "accent" },
+  { icon: UserCog, label: "Personalization", body: "Per-customer experiences, per-rep playbooks, per-user memory at scale.", tone: "brand" },
   { icon: MessageSquareText, label: "Chatbots", body: "Web, in-app, WhatsApp and Instagram assistants with memory and citations.", tone: "accent" },
   { icon: PhoneCall, label: "Voice Agents", body: "Inbound + outbound voice concierges that never sleep and never put callers on hold.", tone: "brand" },
-  { icon: Bot, label: "Personal Agents", body: "An agent per role, per workflow — your second brain that does the work, not just plans it.", tone: "accent" },
+  { icon: Bot, label: "Personal Agents", body: "An agent per role, per workflow your second brain that does the work, not just plans it.", tone: "accent" },
 ] as const;
 
 export function PosterIntegrations() {
@@ -61,7 +61,7 @@ export function PosterIntegrations() {
       >
         Twelve places AI <span className="text-gradient">already belongs</span>
         <br />
-        inside your business — most just{" "}
+        inside your business most just{" "}
         <span className="text-[var(--color-fg-muted)]">haven&rsquo;t noticed.</span>
       </motion.h2>
 
@@ -73,7 +73,7 @@ export function PosterIntegrations() {
       >
         Every box below is a workflow that&rsquo;s currently being done by humans
         copy-pasting between tabs. Every box below is also a workflow we can
-        agentify — wired into the systems you already pay for. No new vendor.
+        agentify wired into the systems you already pay for. No new vendor.
         No new login. Just less manual labor and more compounding output.
       </motion.p>
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Sparkles, Mail, Phone, Globe } from "lucide-react";
@@ -28,9 +28,6 @@ export function PosterCover() {
               <span className="font-display text-base font-semibold tracking-tight text-[var(--color-fg)]">
                 Nuvero AI
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
-                est. 2024 · remote · india
-              </span>
             </div>
           </div>
 
@@ -52,7 +49,7 @@ export function PosterCover() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="font-mono text-[11px] uppercase tracking-[0.3em] text-[var(--color-fg-muted)]"
           >
-            A field guide to agentic systems —
+            A field guide to agentic systems 
           </motion.span>
 
           <motion.h1

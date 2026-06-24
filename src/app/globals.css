@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @theme {
   --color-bg: #FDF0D5;
@@ -16,7 +16,7 @@
   --color-success: #2D7A4F;
   --color-danger: #C1121F;
 
-  /* shadcn/ui compatibility — mapped to existing design tokens */
+  /* shadcn/ui compatibility mapped to existing design tokens */
   --color-background: #FDF0D5;
   --color-foreground: #003049;
   --color-card: #F5E4C0;
@@ -150,7 +150,7 @@
     background-size: 24px 24px;
   }
 
-  /* flat glass — no blur, just solid surface */
+  /* flat glass no blur, just solid surface */
   .glass {
     background: var(--color-bg-elev);
     border: 1.5px solid var(--color-border);
@@ -277,10 +277,7 @@
 .poster-grid {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(0, 48, 73, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 48, 73, 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image: none;
   pointer-events: none;
 }
 

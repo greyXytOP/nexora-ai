@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { WorkGrid } from "@/components/work/WorkGrid";
 import { GradientOrb } from "@/components/shared/GradientOrb";
 import { GridBackground } from "@/components/shared/GridBackground";
@@ -8,7 +8,7 @@ import { CtaBanner } from "@/components/home/CtaBanner";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected case studies — AI voice agents, conversational copilots, lead-gen engines, and marketing automation systems we've shipped.",
+    "Selected case studies AI voice agents, conversational copilots, lead-gen engines, and marketing automation systems we've shipped.",
 };
 
 export default function WorkPage() {
@@ -23,7 +23,7 @@ export default function WorkPage() {
           <SectionHeader
             eyebrow="Selected work"
             title="Systems shipped. Numbers moved."
-            subtitle="A few of the AI builds we're proudest of — and the metrics they shifted for our clients."
+            subtitle="A few of the AI builds we're proudest of and the metrics they shifted for our clients."
           />
         </div>
       </section>

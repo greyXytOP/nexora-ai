@@ -1,4 +1,4 @@
-import type { LucideIcon } from "lucide-react";
+﻿import type { LucideIcon } from "lucide-react";
 import {
   Building2,
   HeartPulse,
@@ -69,7 +69,7 @@ export const industries: Industry[] = [
     slug: "saas",
     name: "SaaS",
     icon: Cloud,
-    headline: "AI features your customers ask for — without burning your roadmap.",
+    headline: "AI features your customers ask for without burning your roadmap.",
     useCases: [
       "Embedded copilots in your product",
       "Customer success agents that prevent churn",

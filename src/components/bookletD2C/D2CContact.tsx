@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -96,7 +96,7 @@ export function D2CContact() {
         >
           One 30-minute discovery call, no slides, no NDA. We&rsquo;ll map the two or three
           highest-leverage AI opportunities in your funnel and tell you how fast we can have it
-          live on your store — straight — whether it&rsquo;s worth shipping, what it&rsquo;ll
+          live on your store straight whether it&rsquo;s worth shipping, what it&rsquo;ll
           cost, and how fast we can have it live.
         </motion.p>
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { PhoneCall, MessageSquareText } from "lucide-react";
@@ -59,7 +59,7 @@ export function PosterServiceSpotlight1() {
             problem:
               "Missed calls leak revenue. Round-the-clock reps crush margins. IVRs frustrate the customers you fought hardest to win.",
             solution: [
-              "Inbound agents that handle FAQs, troubleshoot, route smartly — zero hold-music",
+              "Inbound agents that handle FAQs, troubleshoot, route smartly zero hold-music",
               "Outbound campaign agents that pitch, qualify, and book meetings",
               "Trained on your SOPs, catalog, and customer history",
               "Transcripts, sentiment, and outcomes piped to your CRM",

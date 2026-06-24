@@ -8,6 +8,7 @@ type MarqueeProps = {
   reverse?: boolean;
   className?: string;
   pauseOnHover?: boolean;
+  paused?: boolean;
 };
 
 export function Marquee({
@@ -15,6 +16,7 @@ export function Marquee({
   reverse = false,
   className,
   pauseOnHover = true,
+  paused = false,
 }: MarqueeProps) {
   return (
     <div
@@ -30,6 +32,7 @@ export function Marquee({
           reverse ? "animate-[marquee-reverse_40s_linear_infinite]" : "animate-[marquee_40s_linear_infinite]",
           pauseOnHover && "group-hover:[animation-play-state:paused]",
         )}
+        style={paused ? { animationPlayState: "paused" } : undefined}
       >
         {children}
         {children}

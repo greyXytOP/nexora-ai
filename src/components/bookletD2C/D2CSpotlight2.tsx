@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { ShoppingCart, PhoneCall } from "lucide-react";
@@ -56,10 +56,10 @@ export function D2CSpotlight2() {
             title: "Cart Recovery & Win-Back Agent",
             tagline: "Personalized nudge within minutes, on the channel they actually use.",
             problem:
-              "70% of carts get abandoned, and most brands send one generic discount email 24 hours later — by then, the intent is gone.",
+              "70% of carts get abandoned, and most brands send one generic discount email 24 hours later by then, the intent is gone.",
             solution: [
               "Personalized nudge within minutes, on the channel they actually use",
-              "Dynamic offer logic — not every cart needs a 10% discount to convert",
+              "Dynamic offer logic not every cart needs a 10% discount to convert",
               "References the specific product left behind, not a generic \"come back\"",
               "Full attribution back to revenue recovered, tracked per campaign",
             ],
@@ -75,7 +75,7 @@ export function D2CSpotlight2() {
             title: "Order Confirmation Voice Agent",
             tagline: "Outbound call within minutes of order placement. Confirms. Converts. Cancels fakes.",
             problem:
-              "COD orders that never get picked up cost brands a forward shipment and a reverse shipment — pure margin destruction, often from fake or impulsive orders.",
+              "COD orders that never get picked up cost brands a forward shipment and a reverse shipment pure margin destruction, often from fake or impulsive orders.",
             solution: [
               "Outbound call within minutes of order placement",
               "Confirms address, size/variant, and genuine intent to receive",

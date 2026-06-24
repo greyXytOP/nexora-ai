@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
@@ -45,6 +45,30 @@ const trustLogos = [
     name: "Velocity Watches",
     industry: "Luxury E-commerce",
     metric: "Cart recovery + post-purchase flows automated",
+    slug: null,
+  },
+  {
+    name: "Lifestyle Projects",
+    industry: "Real Estate",
+    metric: "Lead qualification and follow-up fully automated",
+    slug: null,
+  },
+  {
+    name: "Signature Global",
+    industry: "Real Estate",
+    metric: "AI-driven buyer engagement across channels",
+    slug: null,
+  },
+  {
+    name: "Arch Design",
+    industry: "Architecture & Design",
+    metric: "Client intake and project scoping automated",
+    slug: null,
+  },
+  {
+    name: "Arya Dining",
+    industry: "Hospitality & F&B",
+    metric: "Reservations and guest experience automated",
     slug: null,
   },
 ];
@@ -161,7 +185,7 @@ export function Hero() {
           className="mt-7 max-w-2xl text-pretty text-base text-[var(--color-fg-muted)] md:text-lg"
         >
           Nuvero AI builds custom AI agents and end-to-end workflow automations for
-          e-commerce brands, agencies, and operators — compounding revenue, cutting manual
+          e-commerce brands, agencies, and operators compounding revenue, cutting manual
           ops, and scaling your business without scaling your team.
         </motion.p>
 
@@ -215,7 +239,7 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* trust logos — with hover cards */}
+        {/* trust logos with hover cards */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -225,11 +249,11 @@ export function Hero() {
           <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-[var(--color-fg-subtle)]">
             Trusted by teams shipping with us
           </span>
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+          <div className="grid w-full grid-cols-2 gap-2 md:flex md:gap-0 md:border md:border-[var(--color-border)] md:bg-[var(--color-bg-elev)] md:divide-x md:divide-[var(--color-border)]">
             {trustLogos.map((logo) => (
               <HoverCard key={logo.name} openDelay={200} closeDelay={100}>
                 <HoverCardTrigger asChild>
-                  <span className="cursor-default font-display text-sm font-semibold tracking-tight text-[var(--color-fg-muted)] opacity-50 transition-opacity hover:opacity-80 md:text-base">
+                  <span className="cursor-default font-display text-xs font-semibold tracking-tight text-[var(--color-fg)] transition-colors duration-200 hover:text-[var(--color-brand)] px-5 py-3 md:text-sm border border-[var(--color-border)] bg-[var(--color-bg-elev)] flex items-center justify-center text-center md:border-0 md:bg-transparent md:flex-1">
                     {logo.name}
                   </span>
                 </HoverCardTrigger>

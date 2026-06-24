@@ -1,9 +1,10 @@
+import React from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 
 type SectionHeaderProps = {
   eyebrow?: string;
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   align?: "left" | "center";
   className?: string;

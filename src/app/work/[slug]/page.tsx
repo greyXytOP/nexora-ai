@@ -115,13 +115,12 @@ export default async function CaseStudyPage({
 
       <section className="container-x">
         <Reveal>
-          <div className={cn("relative aspect-[16/7] overflow-hidden rounded-2xl", study.image ? "bg-black" : cn("bg-gradient-to-br", study.gradient))}>
+          <div className={cn("overflow-hidden rounded-2xl", !study.image && cn("relative aspect-[16/7] bg-gradient-to-br", study.gradient))}>
             {study.image ? (
-              <Image src={study.image} alt={study.client} fill className="object-cover opacity-80" priority />
+              <Image src={study.image} alt={study.client} width={0} height={0} sizes="100vw" className="w-full h-auto" priority />
             ) : (
               <div className="absolute inset-0 grid-bg opacity-30" />
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-transparent to-transparent" />
           </div>
         </Reveal>
       </section>

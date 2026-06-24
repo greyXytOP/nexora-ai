@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: `Select Agency — ${site.name}`,
+  title: `Select Agency ${site.name}`,
   robots: { index: false, follow: false },
 };
 

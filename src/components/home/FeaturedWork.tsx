@@ -1,11 +1,10 @@
-"use client";
+﻿"use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
-import Image from "next/image";
-import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 import { ArrowUpRight, ExternalLink, Mic, Bot, Megaphone, Truck, Target, Search } from "lucide-react";
 import { SectionHeader } from "@/components/shared/SectionHeader";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Marquee } from "@/components/shared/Marquee";
 
 type WorkItem = {
   no: string;
@@ -15,9 +14,7 @@ type WorkItem = {
   highlights: string[];
   impact: { metric: string; label: string }[];
   gradient: string;
-  image?: string;
   icon: React.ElementType;
-  badge?: string;
   openSource?: boolean;
 };
 
@@ -32,7 +29,7 @@ const workItems: WorkItem[] = [
       "Answers inbound calls 24/7, first ring every time",
       "Auto-calls new leads within seconds of enquiry",
       "Captures and structures every lead's data automatically",
-      "Logs call summaries — no manual note entry needed",
+      "Logs call summaries no manual note entry needed",
     ],
     impact: [
       { metric: "<60s", label: "follow-up time (was ~4 hours)" },
@@ -40,7 +37,6 @@ const workItems: WorkItem[] = [
       { metric: "0", label: "manual call notes entered" },
     ],
     gradient: "from-violet-500/35 via-fuchsia-500/20 to-cyan-500/25",
-    image: "/proj-southwest-voice.jpeg",
   },
   {
     no: "02",
@@ -60,7 +56,6 @@ const workItems: WorkItem[] = [
       { metric: "<50ms", label: "response time on cached queries" },
     ],
     gradient: "from-cyan-500/35 via-teal-500/20 to-violet-500/25",
-    image: "/proj-gohappy.jpeg",
   },
   {
     no: "03",
@@ -80,7 +75,6 @@ const workItems: WorkItem[] = [
       { metric: "100%", label: "consistent brand voice, every time" },
     ],
     gradient: "from-violet-500/30 via-cyan-500/20 to-fuchsia-500/25",
-    image: "/proj-marketing.jpeg",
   },
   {
     no: "04",
@@ -100,7 +94,6 @@ const workItems: WorkItem[] = [
       { metric: "Full", label: "audit trail of every change made" },
     ],
     gradient: "from-fuchsia-500/25 via-violet-500/20 to-cyan-500/20",
-    image: "/proj-southwest-delivery.jpeg",
   },
   {
     no: "05",
@@ -120,7 +113,6 @@ const workItems: WorkItem[] = [
       { metric: "$0.11", label: "average cost per verified lead" },
     ],
     gradient: "from-cyan-500/25 via-fuchsia-500/20 to-violet-500/25",
-    image: "/proj-multi-client.jpeg",
   },
   {
     no: "06",
@@ -140,26 +132,15 @@ const workItems: WorkItem[] = [
       { metric: "$0", label: "recurring tool or data cost" },
     ],
     gradient: "from-teal-500/30 via-cyan-500/20 to-violet-500/20",
-    image: "/proj-sba.jpeg",
     openSource: true,
   },
 ];
 
-const CARD_W_MOBILE = "min(82vw, 320px)";
-const CARD_W_DESKTOP = "360px";
-
 function WorkCard({ item }: { item: WorkItem }) {
   return (
-    <div
-      className="relative flex shrink-0 flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-elev)] transition-colors hover:border-[var(--color-brand)]"
-      style={{ width: CARD_W_DESKTOP }}
-    >
-      <div className={`relative h-[110px] overflow-hidden ${item.image ? "bg-black" : `bg-gradient-to-br ${item.gradient}`}`}>
-        {item.image ? (
-          <Image src={item.image} alt={item.client} fill className="object-cover opacity-80 transition-transform duration-500 group-hover:scale-105" />
-        ) : (
-          <div className="absolute inset-0 grid-bg opacity-30" />
-        )}
+    <div className="relative flex w-[340px] shrink-0 flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-elev)] transition-colors hover:border-[var(--color-brand)] cursor-pointer select-none">
+      <div className={`relative h-[110px] overflow-hidden bg-gradient-to-br ${item.gradient}`}>
+        <div className="absolute inset-0 grid-bg opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-elev)]/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-4">
           <div>
@@ -220,203 +201,53 @@ function WorkCard({ item }: { item: WorkItem }) {
   );
 }
 
-function SkeletonCard() {
-  return (
-    <div
-      className="relative flex shrink-0 flex-col overflow-hidden border border-[var(--color-border)] bg-[var(--color-bg-elev)]"
-      style={{ width: CARD_W_DESKTOP }}
-    >
-      <Skeleton className="h-[110px] w-full rounded-none bg-[var(--color-surface)]" />
-      <div className="flex flex-1 flex-col gap-5 p-5">
-        <div className="flex items-start gap-2.5">
-          <Skeleton className="mt-1 size-4 shrink-0 rounded-none bg-[var(--color-surface)]" />
-          <div className="flex flex-1 flex-col gap-2">
-            <Skeleton className="h-3 w-full rounded-none bg-[var(--color-surface)]" />
-            <Skeleton className="h-3 w-3/4 rounded-none bg-[var(--color-surface)]" />
-          </div>
-        </div>
-        <div className="flex flex-col gap-2 border-t border-[var(--color-border)] pt-4">
-          {[1, 2, 3, 4].map((i) => (
-            <Skeleton key={i} className="h-2.5 w-full rounded-none bg-[var(--color-surface)]" />
-          ))}
-        </div>
-        <div className="mt-auto grid grid-cols-3 gap-2 border-t border-[var(--color-border)] pt-4">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="flex flex-col gap-1.5">
-              <Skeleton className="h-5 w-10 rounded-none bg-[var(--color-surface)]" />
-              <Skeleton className="h-2 w-full rounded-none bg-[var(--color-surface)]" />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ── Desktop: scroll-driven sticky horizontal ── */
-function DesktopScroller() {
-  const outerRef = useRef<HTMLDivElement>(null);
-  const rowRef = useRef<HTMLDivElement>(null);
-  const [scrollWidth, setScrollWidth] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const [ready, setReady] = useState(false);
-
-  const measure = useCallback(() => {
-    if (!rowRef.current) return;
-    setScrollWidth(rowRef.current.scrollWidth);
-    setContainerWidth(rowRef.current.parentElement?.offsetWidth ?? 0);
-    setReady(true);
-  }, []);
+export function FeaturedWork() {
+  const [paused, setPaused] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const ro = new ResizeObserver(measure);
-    if (rowRef.current) ro.observe(rowRef.current);
-    measure();
-    return () => ro.disconnect();
-  }, [measure]);
-
-  const { scrollYProgress } = useScroll({
-    target: outerRef,
-    offset: ["start start", "end end"],
-  });
-
-  const rawX = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, -(scrollWidth - containerWidth)]
-  );
-  const x = useSpring(rawX, { damping: 60, stiffness: 500, mass: 1 });
-
-  return (
-    /* outer: 300vh tall — drives scroll distance */
-    <div ref={outerRef} style={{ height: "300vh" }}>
-      {/* sticky inner */}
-      <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
-        <div className="container-x">
-          <SectionHeader
-            eyebrow="Selected work"
-            title="Systems we've shipped that moved real business metrics."
-            subtitle="Every engagement starts with a number we're trying to move — and ends with the proof we moved it."
-          />
-        </div>
-
-        {/* card row */}
-        <div className="mt-10 overflow-visible pl-[max(1.5rem,calc((100vw-1280px)/2+1.5rem))]">
-          <motion.div
-            ref={rowRef}
-            style={{ x }}
-            className="flex gap-5 will-change-transform"
-          >
-            {!ready
-              ? workItems.map((_, i) => <SkeletonCard key={i} />)
-              : workItems.map((item) => <WorkCard key={item.no} item={item} />)}
-            {/* trailing spacer so last card clears the viewport edge */}
-            <div className="shrink-0 w-8" aria-hidden />
-          </motion.div>
-        </div>
-
-        {/* progress indicator */}
-        <div className="container-x mt-8">
-          <div className="h-px w-full bg-[var(--color-border)]">
-            <motion.div
-              className="h-full bg-[var(--color-brand)]"
-              style={{ scaleX: scrollYProgress, transformOrigin: "left" }}
-            />
-          </div>
-          <p className="mt-3 text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--color-fg-subtle)]">
-            Scroll to explore all {workItems.length} case studies
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ── Mobile: native swipe ── */
-function MobileScroller() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const rowRef = useRef<HTMLDivElement>(null);
-
-  const onScroll = useCallback(() => {
-    const row = rowRef.current;
-    if (!row) return;
-    const cardW = row.scrollWidth / workItems.length;
-    setActiveIndex(Math.round(row.scrollLeft / cardW));
+    const handleClick = (e: MouseEvent) => {
+      if (carouselRef.current && !carouselRef.current.contains(e.target as Node)) {
+        setPaused(false);
+      }
+    };
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
   }, []);
 
   return (
-    <section className="border-t border-[var(--color-border)] py-20">
-      <div className="container-x mb-8">
+    <section className="relative border-t border-[var(--color-border)] py-24 md:py-32">
+      <div className="container-x mb-12">
         <SectionHeader
           eyebrow="Selected work"
           title="Systems we've shipped that moved real business metrics."
-          subtitle="Every engagement starts with a number we're trying to move — and ends with the proof we moved it."
+          subtitle="Every engagement starts with a number we're trying to move and ends with the proof we moved it."
         />
       </div>
 
-      <div
-        ref={rowRef}
-        onScroll={onScroll}
-        className="flex gap-4 overflow-x-auto px-4 pb-2"
-        style={{
-          scrollSnapType: "x mandatory",
-          WebkitOverflowScrolling: "touch",
-          scrollbarWidth: "none",
-        } as React.CSSProperties}
-      >
-        <style>{`.mobile-row::-webkit-scrollbar{display:none}`}</style>
-        {workItems.map((item) => (
-          <div
-            key={item.no}
-            style={{
-              width: CARD_W_MOBILE,
-              minWidth: CARD_W_MOBILE,
-              scrollSnapAlign: "center",
-            }}
-          >
-            <WorkCard item={item} />
-          </div>
-        ))}
-        <div className="shrink-0 w-4" aria-hidden />
+      <div ref={carouselRef} onClick={() => setPaused(true)}>
+        <Marquee pauseOnHover={false} paused={paused}>
+          {workItems.map((item) => (
+            <WorkCard key={item.no} item={item} />
+          ))}
+        </Marquee>
       </div>
 
-      {/* dots */}
-      <div className="mt-4 flex items-center justify-center gap-1.5">
-        {workItems.map((_, i) => (
-          <button
-            key={i}
-            aria-label={`Go to project ${i + 1}`}
-            onClick={() => {
-              const row = rowRef.current;
-              if (!row) return;
-              const cardW = row.scrollWidth / workItems.length;
-              row.scrollTo({ left: i * cardW, behavior: "smooth" });
-            }}
-            className={`h-1.5 transition-all duration-300 ${
-              i === activeIndex
-                ? "w-5 bg-[var(--color-brand)]"
-                : "w-1.5 bg-[var(--color-border)]"
-            }`}
-          />
-        ))}
+      {paused && (
+        <p className="mt-4 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--color-fg-subtle)]">
+          Paused click outside to resume
+        </p>
+      )}
+
+      <div className="mt-10 flex justify-center">
+        <Link
+          href="/work"
+          className="inline-flex items-center gap-2 border-2 border-[var(--color-border)] px-6 py-3 text-sm font-semibold text-[var(--color-fg)] transition-all hover:border-[var(--color-brand)] hover:text-[var(--color-brand)]"
+        >
+          View all work
+          <ArrowUpRight className="size-4" />
+        </Link>
       </div>
     </section>
   );
-}
-
-/* ── Root export ── */
-export function FeaturedWork() {
-  const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    setIsDesktop(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
-  if (isDesktop === null) return null; // avoid hydration mismatch
-
-  return isDesktop ? <DesktopScroller /> : <MobileScroller />;
 }

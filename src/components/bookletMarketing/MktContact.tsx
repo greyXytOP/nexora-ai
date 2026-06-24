@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -96,7 +96,7 @@ export function MktContact() {
         >
           One 30-minute discovery call, no slides, no NDA. We&rsquo;ll map the two or three
           highest-leverage automation or dashboard opportunities across your client accounts and
-          tell you — straight — whether it&rsquo;s worth building, what it&rsquo;ll cost, and
+          tell you straight whether it&rsquo;s worth building, what it&rsquo;ll cost, and
           how fast we can have it live.
         </motion.p>
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { X, Zap } from "lucide-react";
@@ -25,7 +25,7 @@ export function AvailabilityBanner() {
       <div className="flex items-center justify-center gap-2.5 text-xs font-medium text-white">
         <Zap className="size-3 shrink-0" />
         <span>
-          Currently booking <strong>Q3 2026</strong> — 2 client spots remaining.
+          Currently booking <strong>Q3 2026</strong> 2 client spots remaining.
         </span>
         <Link
           href="/contact"

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
 import { Linkedin, Github, Instagram, Mail, Phone } from "lucide-react";
 import { site } from "@/content/site";
@@ -14,7 +14,7 @@ import { CtaBanner } from "@/components/home/CtaBanner";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Nuvero AI is led by Bhumit Goyal — an AI engineer obsessed with shipping agentic systems that move real business metrics.",
+    "Nuvero AI is led by Bhumit Goyal an AI engineer obsessed with shipping agentic systems that move real business metrics.",
 };
 
 export default function AboutPage() {
@@ -41,7 +41,7 @@ export default function AboutPage() {
               <Reveal delay={0.1}>
                 <p className="max-w-2xl text-pretty text-base leading-relaxed text-[var(--color-fg-muted)] md:text-lg">
                   Nuvero AI was founded on a simple belief: most businesses don't need
-                  another AI vendor — they need a small, senior team that will design,
+                  another AI vendor they need a small, senior team that will design,
                   build, integrate, and own AI systems end-to-end. That's exactly what we do.
                 </p>
               </Reveal>
@@ -119,7 +119,7 @@ export default function AboutPage() {
               </p>
               <p className="text-[var(--color-fg-muted)]">
                 I work closely with a small bench of senior engineers and designers. We
-                deliberately stay small so every project gets senior attention — and we
+                deliberately stay small so every project gets senior attention and we
                 ship faster because of it.
               </p>
               <div className="flex flex-wrap gap-3 pt-3">

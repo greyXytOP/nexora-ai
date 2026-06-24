@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import {
@@ -21,7 +21,7 @@ const valueProps = [
   {
     icon: Layers,
     title: "Brand-matched, not generic",
-    body: "Every chatbot, stylist, and voice agent is trained on your actual catalog and tone — not a templated bot wearing your logo.",
+    body: "Every chatbot, stylist, and voice agent is trained on your actual catalog and tone not a templated bot wearing your logo.",
     accent: "accent" as const,
   },
   {

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Quote } from "lucide-react";
@@ -10,7 +10,7 @@ const beliefs = [
     no: "01",
     label: "Prompting is not strategy",
     body:
-      "Anyone can paste a prompt into ChatGPT. That's a parlor trick — not leverage. Real AI lives inside the boring tools your team already pays for: CRMs, inboxes, dashboards, ticketing, schedulers.",
+      "Anyone can paste a prompt into ChatGPT. That's a parlor trick not leverage. Real AI lives inside the boring tools your team already pays for: CRMs, inboxes, dashboards, ticketing, schedulers.",
   },
   {
     no: "02",
@@ -22,7 +22,7 @@ const beliefs = [
     no: "03",
     label: "Custom beats generic, always",
     body:
-      "Off-the-shelf SaaS gets you 70% of the way. The remaining 30% — the part that's actually unique to your business — is where the real margin and moat live.",
+      "Off-the-shelf SaaS gets you 70% of the way. The remaining 30% the part that's actually unique to your business is where the real margin and moat live.",
   },
   {
     no: "04",
@@ -79,7 +79,7 @@ export function PosterManifesto() {
         Most teams equate &ldquo;using AI&rdquo; with typing into ChatGPT. That&rsquo;s like
         equating &ldquo;using electricity&rdquo; with plugging in a lamp. The actual leverage
         is when AI sits invisibly inside your <span className="text-[var(--color-fg)]">management, analytics, marketing, sales,
-        coding, dashboards, customer support, and operations</span> — taking the
+        coding, dashboards, customer support, and operations</span> taking the
         repetitive judgment-heavy work off your team&rsquo;s plate, 24/7, without ever
         getting tired or quitting.
       </motion.p>
@@ -118,7 +118,7 @@ export function PosterManifesto() {
         <p className="font-display text-[15px] leading-[1.5] tracking-tight text-[var(--color-fg)]">
           &ldquo;If a process repeats, it can be agentified. If it&rsquo;s judgment-heavy,
           it can be augmented. If it&rsquo;s a meeting, it can be summarized,
-          actioned, and followed up — automatically. The bar is no longer{" "}
+          actioned, and followed up automatically. The bar is no longer{" "}
           <span className="text-gradient-brand">can AI do this</span>. The bar is{" "}
           <span className="text-gradient-brand">have we wired it in yet</span>.&rdquo;
         </p>

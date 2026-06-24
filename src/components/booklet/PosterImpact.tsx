@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Clock, Wallet, Activity, ShieldCheck } from "lucide-react";
@@ -93,7 +93,7 @@ export function PosterImpact() {
       >
         We instrument every system with KPIs before a line of code ships. If it
         doesn&rsquo;t move a number, it isn&rsquo;t done. Below: the four
-        outcomes our clients care about most — followed by where each lift
+        outcomes our clients care about most followed by where each lift
         actually came from.
       </motion.p>
 
@@ -176,7 +176,7 @@ export function PosterImpact() {
       >
         <p className="font-display text-[13px] tracking-tight text-[var(--color-fg)]">
           Across 47+ shipped systems, in 11 industries, handling 1.4M+ AI
-          interactions per month — and counting.
+          interactions per month and counting.
         </p>
         <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-muted)]">
           v1.0 · 2026

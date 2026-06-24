@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { Workflow, LineChart } from "lucide-react";
@@ -43,7 +43,7 @@ export function PosterServiceSpotlight3() {
         transition={{ delay: 0.2, duration: 0.6 }}
         className="mt-4 max-w-[160mm] text-[12px] leading-[1.55] text-[var(--color-fg-muted)]"
       >
-        The 30% of your workflows that no off-the-shelf product handles — wired
+        The 30% of your workflows that no off-the-shelf product handles wired
         across Slack, Notion, Sheets, Salesforce, and your internal APIs. Where
         your team&rsquo;s real leverage hides.
       </motion.p>
@@ -57,12 +57,12 @@ export function PosterServiceSpotlight3() {
             title: "Custom AI Workflows & Integrations",
             tagline: "Agentic systems wired into the tools you already pay for.",
             problem:
-              "Off-the-shelf SaaS handles 70%. The last 30% — the part unique to your business — is where the leverage hides.",
+              "Off-the-shelf SaaS handles 70%. The last 30% the part unique to your business is where the leverage hides.",
             solution: [
               "Bespoke agents for ops, finance, recruiting, supply chain",
               "Tool-use across Slack, Notion, Sheets, Jira, Stripe + APIs",
               "Event-driven orchestration with retries + observability",
-              "Built on your stack, owned by you — no vendor lock-in",
+              "Built on your stack, owned by you no vendor lock-in",
             ],
             tech: ["LangGraph", "Temporal", "n8n", "Supabase", "AWS"],
           }}
@@ -74,7 +74,7 @@ export function PosterServiceSpotlight3() {
             icon: LineChart,
             tone: "accent",
             title: "Sales Operations Copilot",
-            tagline: "Pipeline hygiene, forecasts, and deal intel — on autopilot.",
+            tagline: "Pipeline hygiene, forecasts, and deal intel on autopilot.",
             problem:
               "Your CRM is a swamp. Reps don't log calls, forecasts are guesses, leadership learns deals slipped after they're gone.",
             solution: [

@@ -1,4 +1,4 @@
-export type TechLogo = {
+﻿export type TechLogo = {
   name: string;
   category: "ops" | "sales" | "marketing" | "finance" | "support" | "comms";
 };
@@ -33,7 +33,7 @@ export const techStack: TechLogo[] = [
 export const principles = [
   {
     title: "Pragmatism over hype",
-    body: "We pick the model, framework, and pattern that works — not whatever's trending on X this week.",
+    body: "We pick the model, framework, and pattern that works not whatever's trending on X this week.",
   },
   {
     title: "Ship in weeks, not quarters",

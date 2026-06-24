@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "motion/react";
 import { services } from "@/content/services";
@@ -42,7 +42,7 @@ export function PosterServicesOverview() {
         transition={{ delay: 0.2, duration: 0.6 }}
         className="mt-4 max-w-[160mm] text-[12.5px] leading-[1.55] text-[var(--color-fg-muted)]"
       >
-        Every service below is a production system we&rsquo;ve shipped in the wild —
+        Every service below is a production system we&rsquo;ve shipped in the wild 
         not a deck, not a pilot, not a &ldquo;wait for v2.&rdquo; Pick what bleeds.
         We&rsquo;ll build it.
       </motion.p>
@@ -98,7 +98,7 @@ export function PosterServicesOverview() {
         className="mt-6 flex items-center justify-between rounded-xl border border-[var(--color-border-strong)] bg-[linear-gradient(135deg,rgba(139,92,246,0.10),rgba(34,211,238,0.06))] px-5 py-4"
       >
         <p className="font-display text-[14px] tracking-tight text-[var(--color-fg)]">
-          The next four pages go deep on eight of these — with the problem,
+          The next four pages go deep on eight of these with the problem,
           the build, the deliverables, and the stack we use to ship.
         </p>
         <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--color-fg-muted)]">

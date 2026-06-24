@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { motion, useInView } from "motion/react";
 import { useRef, useCallback } from "react";
-import { ArrowUpRight, Building2, Factory, Megaphone, ShoppingBag, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, Building2, Megaphone, ShoppingBag, UtensilsCrossed, Stethoscope, type LucideIcon } from "lucide-react";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { Reveal } from "@/components/shared/Reveal";
 
@@ -23,7 +23,7 @@ const offerings: Offering[] = [
     label: "Marketing Agencies",
     tagline: "Scale delivery without scaling headcount.",
     description:
-      "Problem-specific AI automation for agencies — report generation, campaign monitoring, client outreach — so your team ships better work, faster and takes on more clients.",
+      "Problem-specific AI automation for agencies report generation, campaign monitoring, client outreach so your team ships better work, faster and takes on more clients.",
     solved: [
       "Client report generation",
       "AI SEO & campaign monitoring",
@@ -39,7 +39,7 @@ const offerings: Offering[] = [
     label: "E-commerce Brands",
     tagline: "More revenue. Less manual work. Built to scale.",
     description:
-      "Custom AI automation for Shopify stores, DTC brands, and Amazon sellers — cart recovery, confirmation calls, lead generation, and workflow automation that compounds revenue.",
+      "Custom AI automation for Shopify stores, DTC brands, and Amazon sellers cart recovery, confirmation calls, lead generation, and workflow automation that compounds revenue.",
     solved: [
       "Cart recovery automation",
       "Instagram comments automation",
@@ -52,19 +52,19 @@ const offerings: Offering[] = [
     accentClass: "border-[var(--color-accent)] text-[var(--color-accent)]",
   },
   {
-    icon: Factory,
-    label: "Manufacturers",
-    tagline: "Built for the production floor.",
+    icon: UtensilsCrossed,
+    label: "Hospitality & F&B",
+    tagline: "Deliver exceptional experiences, hands-free.",
     description:
-      "Personalized AI solutions that eliminate the repetitive back-office work slowing your production down — inventory, supplier follow-ups, reports, and maintenance, all automated.",
+      "AI-powered automation for restaurants, hotels, and food businesses reservations, guest communication, staff scheduling, and demand forecasting so your team focuses on service, not admin.",
     solved: [
-      "Inventory reordering alerts",
-      "Supplier follow-up emails",
-      "Production & quality reports",
-      "Maintenance scheduling",
-      "Vendor communication logs",
+      "Reservation & booking automation",
+      "Guest inquiry & feedback handling",
+      "Staff scheduling & shift reminders",
+      "Menu update & promotion broadcasts",
+      "Post-visit review follow-up flows",
     ],
-    href: "/what-we-offer#manufacturers",
+    href: "/what-we-offer#hospitality",
     accentClass: "border-[var(--color-fg)] text-[var(--color-fg)]",
   },
   {
@@ -72,7 +72,7 @@ const offerings: Offering[] = [
     label: "Real Estate & Property",
     tagline: "Close faster. Manage smarter.",
     description:
-      "Custom AI automation for property managers, agents, and developers — tenant communication, lead nurturing, listing generation, and document workflows that run 24/7 without your team touching them.",
+      "Custom AI automation for property managers, agents, and developers tenant communication, lead nurturing, listing generation, and document workflows that run 24/7 without your team touching them.",
     solved: [
       "Tenant inquiry & lease renewal automation",
       "AI-powered property lead nurturing",
@@ -83,6 +83,22 @@ const offerings: Offering[] = [
     ],
     href: "/what-we-offer#realestate",
     accentClass: "border-[var(--color-success)] text-[var(--color-success)]",
+  },
+  {
+    icon: Stethoscope,
+    label: "Healthcare & Clinics",
+    tagline: "Less admin. More patient care.",
+    description:
+      "Intelligent automation for clinics, diagnostic centres, and health providers appointment scheduling, patient reminders, intake forms, and follow-up workflows that reduce no-shows and free your staff.",
+    solved: [
+      "Appointment booking & rescheduling",
+      "Patient reminder & follow-up calls",
+      "Intake form & document automation",
+      "Insurance pre-auth follow-ups",
+      "Post-visit care instruction delivery",
+    ],
+    href: "/what-we-offer#healthcare",
+    accentClass: "border-[var(--color-brand)] text-[var(--color-brand)]",
   },
 ];
 
@@ -190,7 +206,7 @@ function OfferingCard({ item, index }: { item: Offering; index: number }) {
                 <AnimatedYour />{" "}Problem Next?
               </p>
               <p className="mt-1 text-xs text-[var(--color-fg-subtle)] transition-colors group-hover/cta:text-[var(--color-fg-muted)]">
-                Tell us your challenge — we build for it.
+                Tell us your challenge we build for it.
               </p>
               <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[var(--color-brand)]">
                 Get a custom solution <ArrowUpRight className="size-3" />
@@ -209,7 +225,7 @@ export function WhatWeOffer() {
       <div className="container-x">
         <SectionHeader
           eyebrow="What we offer"
-          title="Custom AI, built for your business type."
+          title={<>Custom <span className="text-[var(--color-brand)]">AI</span>, built for your business type.</>}
           subtitle="We don't do generic AI. We understand your industry and build problem-specific AI tools around the exact workflows slowing you down."
         />
 

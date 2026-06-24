@@ -1,4 +1,4 @@
-import { techStack } from "@/content/techStack";
+﻿import { techStack } from "@/content/techStack";
 import { Marquee } from "@/components/shared/Marquee";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 
@@ -12,7 +12,7 @@ export function TechStackMarquee() {
         <SectionHeader
           eyebrow="Our toolkit"
           title="Services we automate for your business."
-          subtitle="From sales follow-ups to invoice processing — we take repetitive tasks off your plate so you can focus on what matters."
+          subtitle="From sales follow-ups to invoice processing we take repetitive tasks off your plate so you can focus on what matters."
         />
       </div>
 

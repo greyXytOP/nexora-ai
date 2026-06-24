@@ -1,4 +1,4 @@
-import { X, Check } from "lucide-react";
+﻿import { X, Check } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -14,7 +14,7 @@ const rows = [
   {
     task: "Lead follow-up response time",
     without: "2–4 hours of manual chasing",
-    with: "<60 seconds — AI agent fires instantly",
+    with: "<60 seconds AI agent fires instantly",
   },
   {
     task: "Monthly reporting",
@@ -39,7 +39,7 @@ const rows = [
   {
     task: "Ops co-ordination calls",
     without: "Daily stand-ups, Slack threads, mistakes",
-    with: "0 calls — status pushed to everyone automatically",
+    with: "0 calls status pushed to everyone automatically",
   },
 ];
 
@@ -50,7 +50,7 @@ export function ComparisonTable() {
         <SectionHeader
           eyebrow="The difference"
           title="What actually changes when AI runs your ops."
-          subtitle="Side by side — every workflow where Nuvero replaces the manual grind with something that just runs."
+          subtitle="Side by side every workflow where Nuvero replaces the manual grind with something that just runs."
         />
 
         <Reveal delay={0.1}>

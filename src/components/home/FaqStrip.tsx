@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { faqs } from "@/content/faqs";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
@@ -18,7 +18,7 @@ export function FaqStrip() {
             />
             <Reveal>
               <p className="text-sm text-[var(--color-fg-muted)]">
-                Still have questions? Drop us a line — Bhumit replies personally to every inquiry.
+                Still have questions? Drop us a line Bhumit replies personally to every inquiry.
               </p>
               <Link
                 href="/contact"

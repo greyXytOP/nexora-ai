@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { processSteps } from "@/content/process";
 import { GradientOrb } from "@/components/shared/GradientOrb";
 import { GridBackground } from "@/components/shared/GridBackground";
@@ -10,7 +10,7 @@ import { CtaBanner } from "@/components/home/CtaBanner";
 export const metadata: Metadata = {
   title: "Process",
   description:
-    "Our 5-step engagement process — from discovery to scale. Ship working software every week, instrument every build with KPIs.",
+    "Our 5-step engagement process from discovery to scale. Ship working software every week, instrument every build with KPIs.",
 };
 
 export default function ProcessPage() {

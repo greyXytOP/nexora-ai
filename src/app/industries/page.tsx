@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { industries } from "@/content/industries";
 import { GradientOrb } from "@/components/shared/GradientOrb";
 import { GridBackground } from "@/components/shared/GridBackground";
@@ -24,7 +24,7 @@ export default function IndustriesPage() {
           <SectionHeader
             eyebrow="Industries"
             title="Built across the verticals where AI compounds fastest."
-            subtitle="We're industry-flexible by design — what matters is whether the workflow is repetitive, judgment-heavy, and worth automating."
+            subtitle="We're industry-flexible by design what matters is whether the workflow is repetitive, judgment-heavy, and worth automating."
           />
         </div>
       </section>

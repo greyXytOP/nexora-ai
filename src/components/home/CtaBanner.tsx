@@ -1,4 +1,4 @@
-import { GlowButton } from "@/components/shared/GlowButton";
+﻿import { GlowButton } from "@/components/shared/GlowButton";
 import { Reveal } from "@/components/shared/Reveal";
 
 export function CtaBanner() {
@@ -24,7 +24,7 @@ export function CtaBanner() {
               </h2>
               <p className="max-w-xl text-pretty text-[var(--color-fg-muted)] md:text-lg">
                 Book a 30-minute discovery call. We'll walk through your workflows, surface the top
-                3 opportunities, and tell you whether we're the right fit — no slides, no sales theatre.
+                3 opportunities, and tell you whether we're the right fit no slides, no sales theatre.
               </p>
               <div className="mt-3 flex flex-col items-center gap-3 sm:flex-row">
                 <GlowButton href="/contact" size="lg" withArrow>

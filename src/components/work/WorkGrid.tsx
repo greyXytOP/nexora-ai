@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -56,7 +56,7 @@ export function WorkGrid() {
 
       {filtered.length === 0 ? (
         <p className="py-16 text-center text-sm text-[var(--color-fg-muted)]">
-          No case studies in this category yet — try another filter.
+          No case studies in this category yet try another filter.
         </p>
       ) : null}
     </div>

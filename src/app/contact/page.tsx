@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Mail, Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import { site } from "@/content/site";
 import { GradientOrb } from "@/components/shared/GradientOrb";
@@ -59,7 +59,7 @@ export default function ContactPage() {
             <Reveal delay={0.1}>
               <p className="max-w-2xl text-pretty text-base text-[var(--color-fg-muted)] md:text-lg">
                 Tell us about the workflow you want AI to own. We'll reply within one
-                business day with a no-fluff perspective on whether — and how — we can help.
+                business day with a no-fluff perspective on whether and how we can help.
               </p>
             </Reveal>
           </div>

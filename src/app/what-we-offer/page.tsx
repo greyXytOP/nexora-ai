@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
-  Factory,
+  Building2,
   Megaphone,
   ShoppingBag,
   Utensils,
@@ -22,12 +22,12 @@ import {
   Bot,
   Target,
   Mic,
-  // Manufacturing icons
-  Package,
-  BookOpen,
-  ClipboardList,
-  Wrench,
-  Mail,
+  // Real estate icons
+  FileText,
+  Bell,
+  Users,
+  Home,
+  ClipboardCheck,
   // Restaurant icons
   Star,
   Calculator,
@@ -67,12 +67,12 @@ const sections = [
       "Manual prospecting eating into delivery time",
     ],
     solved: [
-      { task: "Unified AI Reporting Engine", icon: BarChart3, detail: "Connects to all your ad platforms, generates branded client reports on schedule, and flags anomalies in plain English — automatically." },
-      { task: "AI SEO Engine", icon: Search, detail: "Mines keyword gaps, generates content briefs, creates programmatic pages, and monitors rankings — turning SEO from a sprint into a compounding loop." },
+      { task: "Unified AI Reporting Engine", icon: BarChart3, detail: "Connects to all your ad platforms, generates branded client reports on schedule, and flags anomalies in plain English automatically." },
+      { task: "AI SEO Engine", icon: Search, detail: "Mines keyword gaps, generates content briefs, creates programmatic pages, and monitors rankings turning SEO from a sprint into a compounding loop." },
       { task: "AI Ad Campaign Optimizer", icon: TrendingUp, detail: "Monitors performance every few hours, auto-rotates fatigued creatives, reallocates budget to top performers, and sends a daily Slack summary." },
-      { task: "AI Onboarding Agent", icon: UserCheck, detail: "Handles new client intake from first email to structured brief — forms, asset collection, async Q&A — all without a single manual email." },
-      { task: "Client Outreach Automation", icon: Send, detail: "Find and reach clients with personalized messages automatically — without pressing a single button. Built on your ICP with CRM integration." },
-      { task: "Your problem next", icon: Sparkles, detail: "We build custom AI solutions for the specific delivery bottlenecks inside your agency — not template tools repackaged for marketing.", isNew: true },
+      { task: "AI Onboarding Agent", icon: UserCheck, detail: "Handles new client intake from first email to structured brief forms, asset collection, async Q&A all without a single manual email." },
+      { task: "Client Outreach Automation", icon: Send, detail: "Find and reach clients with personalized messages automatically without pressing a single button. Built on your ICP with CRM integration." },
+      { task: "Your problem next", icon: Sparkles, detail: "We build custom AI solutions for the specific delivery bottlenecks inside your agency not template tools repackaged for marketing.", isNew: true },
     ] as SolvedItem[],
   },
   {
@@ -82,7 +82,7 @@ const sections = [
     eyebrow: "For Shopify stores, DTC brands & Amazon sellers",
     headline: "More revenue. Less manual work.",
     description:
-      "E-commerce brands leave significant revenue on the table through abandoned carts, slow follow-ups, and manual ops that don't scale. We build AI automation that works while you sleep — compounding revenue, improving customer experience, and cutting operational overhead.",
+      "E-commerce brands leave significant revenue on the table through abandoned carts, slow follow-ups, and manual ops that don't scale. We build AI automation that works while you sleep compounding revenue, improving customer experience, and cutting operational overhead.",
     painPoints: [
       "Abandoned carts never getting a timely, personalized follow-up",
       "Instagram comments going unanswered and harming brand perception",
@@ -91,38 +91,38 @@ const sections = [
       "Customer questions going unanswered outside business hours",
     ],
     solved: [
-      { task: "Workflow Automation", icon: Zap, detail: "Build custom AI workflows that complete repetitive work for you — order processing, CRM updates, inventory alerts — without manual intervention." },
+      { task: "Workflow Automation", icon: Zap, detail: "Build custom AI workflows that complete repetitive work for you order processing, CRM updates, inventory alerts without manual intervention." },
       { task: "Cart Recovery Automation", icon: ShoppingCart, detail: "Don't let visitors forget what they were about to buy. Automatically send personalized reminders featuring the exact products they viewed." },
-      { task: "Instagram Comments Automation", icon: MessageSquare, detail: "Reply instantly to Instagram comments that would otherwise go unnoticed, using your brand's unique tone of voice — within seconds of posting." },
-      { task: "Confirmation Call Automation", icon: Phone, detail: "Automated voice calls for order confirmations, delivery updates, and follow-ups — placed within minutes, fully personalized to each customer." },
+      { task: "Instagram Comments Automation", icon: MessageSquare, detail: "Reply instantly to Instagram comments that would otherwise go unnoticed, using your brand's unique tone of voice within seconds of posting." },
+      { task: "Confirmation Call Automation", icon: Phone, detail: "Automated voice calls for order confirmations, delivery updates, and follow-ups placed within minutes, fully personalized to each customer." },
       { task: "Personalized AI Chatbot", icon: Bot, detail: "24/7 support trained on your product catalog and brand tone. Converts browsers into buyers, handles support tickets, and escalates to humans seamlessly." },
-      { task: "Lead Generation System", icon: Target, detail: "Automated lead capture, qualification, and CRM enrichment — conversion-focused from day one. High-intent leads are surfaced to your team immediately." },
+      { task: "Lead Generation System", icon: Target, detail: "Automated lead capture, qualification, and CRM enrichment conversion-focused from day one. High-intent leads are surfaced to your team immediately." },
       { task: "Incoming & Outgoing Brand-Aware Voice Bots", icon: Mic, detail: "AI voice agents that answer inbound calls, make outbound follow-up calls, speak in your brand's tone, qualify leads, collect customer information, and route conversations intelligently." },
       { task: "Your problem next", icon: Sparkles, detail: "Every e-commerce brand is different. We build personalized AI tools around your specific revenue and ops challenges.", isNew: true },
     ] as SolvedItem[],
   },
   {
-    id: "manufacturers",
-    icon: Factory,
-    label: "Manufacturers",
-    eyebrow: "For the production floor",
-    headline: "Stop losing time to admin. Start running a tighter operation.",
+    id: "realestate",
+    icon: Building2,
+    label: "Real Estate & Property",
+    eyebrow: "For real estate agents, developers & property managers",
+    headline: "Close faster. Nurture smarter. Manage less.",
     description:
-      "Manufacturing businesses bleed time on repetitive back-office tasks — chasing suppliers, updating inventory spreadsheets, sending status emails, and manually generating reports. We build personalized AI solutions that handle all of it so your team stays focused on what they're actually good at: making things.",
+      "Real estate businesses lose deals to slow follow-ups, miss renewals because of manual tracking, and waste hours on listing copy and tenant communication. We build AI automation that keeps your pipeline moving, your tenants happy, and your team focused on closing not chasing.",
     painPoints: [
-      "Hours lost chasing supplier responses",
-      "Inventory errors from manual spreadsheet updates",
-      "Delayed production reports holding up decisions",
-      "Missed maintenance windows causing downtime",
-      "Vendor communication falling through the cracks",
+      "Leads going cold because follow-ups happen too late",
+      "Tenant inquiries piling up without timely responses",
+      "Lease renewal reminders sent manually, often missed",
+      "Listing descriptions taking hours to write from scratch",
+      "Maintenance requests falling through the cracks",
     ],
     solved: [
-      { task: "AI Inventory Reconciliation Agent", icon: Package, detail: "Cross-references POs, GRNs, and stock counts in real time. Flags discrepancies and auto-triggers reorder alerts without manual effort." },
-      { task: "AI SOP / Internal Knowledge Copilot", icon: BookOpen, detail: "Indexes all your SOPs, safety manuals, and training docs into a searchable AI brain. Workers get accurate, cited answers in plain English — instantly." },
-      { task: "Production & Quality Reports", icon: ClipboardList, detail: "Automatically pulls production line data, calculates yield and defect KPIs, and distributes formatted reports at the end of every shift." },
-      { task: "Maintenance Scheduling", icon: Wrench, detail: "Predicts service needs from equipment usage and history, generates a forward-looking maintenance calendar, and alerts the right technician before breakdowns occur." },
-      { task: "Vendor Communication Logs", icon: Mail, detail: "Monitors supplier emails and messages, extracts commitments and action items, and surfaces overdue responses with daily alerts." },
-      { task: "Your problem next", icon: Sparkles, detail: "We build custom AI tools to fit your exact manufacturing workflow — not generic software rebranded for the factory floor.", isNew: true },
+      { task: "AI Lead Nurturing Agent", icon: Users, detail: "Automatically follows up with every incoming property enquiry via WhatsApp, email, or voice within seconds. Qualifies intent, books site visits, and routes hot leads to the right agent." },
+      { task: "Listing Description Generator", icon: FileText, detail: "Generates compelling, SEO-optimised property listings from a simple set of inputs bedrooms, location, amenities in seconds, in your brand voice." },
+      { task: "Lease Renewal & Reminder Automation", icon: Bell, detail: "Monitors lease end dates and auto-sends personalised renewal offers at the right time. Reduces churn and keeps occupancy high without manual tracking." },
+      { task: "Tenant Communication Bot", icon: Home, detail: "Handles inbound tenant queries 24/7 maintenance requests, payment questions, move-in checklists escalating to your team only when genuinely needed." },
+      { task: "Document & Compliance Workflow", icon: ClipboardCheck, detail: "Automates collection of KYC documents, rental agreements, and compliance checklists. Sends reminders, tracks completion, and flags missing items before they cause delays." },
+      { task: "Your problem next", icon: Sparkles, detail: "We build custom AI tools around your exact real estate workflow not generic CRM add-ons repackaged for property teams.", isNew: true },
     ] as SolvedItem[],
   },
   {
@@ -132,7 +132,7 @@ const sections = [
     eyebrow: "For restaurant operations",
     headline: "Cut waste. Fill covers. Run smoother.",
     description:
-      "Restaurants face a unique combination of operational, financial, and marketing challenges — often with lean teams. We build problem-specific AI systems that handle scheduling, reconciliation, forecasting, and marketing so you can focus on the food and the guest experience.",
+      "Restaurants face a unique combination of operational, financial, and marketing challenges often with lean teams. We build problem-specific AI systems that handle scheduling, reconciliation, forecasting, and marketing so you can focus on the food and the guest experience.",
     painPoints: [
       "Quiet covers during slow periods eating into margins",
       "Manual POS reconciliation taking hours each night",
@@ -141,13 +141,13 @@ const sections = [
       "Food waste from inaccurate prep planning",
     ],
     solved: [
-      { task: "AI Marketing Automation", icon: Megaphone, detail: "Identifies slow periods and sends personalized promotions to the right guest segments via email or SMS — automatically, based on visit history." },
+      { task: "AI Marketing Automation", icon: Megaphone, detail: "Identifies slow periods and sends personalized promotions to the right guest segments via email or SMS automatically, based on visit history." },
       { task: "Reconciliation Agent", icon: Calculator, detail: "Reconciles POS, payment gateways, and delivery platforms daily and flags discrepancies before your accountant notices." },
       { task: "Review & Feedback Mining Agent", icon: Star, detail: "Monitors all review platforms in real time, categorizes sentiment, surfaces recurring themes, and drafts manager responses for one-click approval." },
-      { task: "AI Staff Scheduling Agent", icon: Calendar, detail: "Analyzes footfall patterns, bookings, and local events to generate optimal shift schedules — cutting labor costs without leaving a shift short." },
+      { task: "AI Staff Scheduling Agent", icon: Calendar, detail: "Analyzes footfall patterns, bookings, and local events to generate optimal shift schedules cutting labor costs without leaving a shift short." },
       { task: "Demand Forecasting Model", icon: BarChart2, detail: "Predicts daily covers and dish demand using historical data, weather, and events. Your kitchen gets a daily prep guide to cut waste and prep smarter." },
       { task: "Reservation & Table Optimization Agent", icon: LayoutGrid, detail: "Consolidates all booking platforms, assigns tables to maximize capacity, sends automated reminders to cut no-shows, and manages the waitlist." },
-      { task: "Your problem next", icon: Sparkles, detail: "Every restaurant is different. We build custom AI tools around your specific operation — not generic hospitality software.", isNew: true },
+      { task: "Your problem next", icon: Sparkles, detail: "Every restaurant is different. We build custom AI tools around your specific operation not generic hospitality software.", isNew: true },
     ] as SolvedItem[],
   },
 ];
@@ -299,7 +299,7 @@ export default function WhatWeOfferPage() {
                     })}
                   </div>
 
-                  {/* Your Problem Next — primary CTA row (outside bordered box, visually distinct) */}
+                  {/* Your Problem Next primary CTA row (outside bordered box, visually distinct) */}
                   {ctaItem && (
                     <Link href="/contact" className="mt-3 block">
                       <div className="group flex items-start gap-4 border-2 border-dashed border-[var(--color-brand)] p-6 transition-all duration-200 hover:bg-[var(--color-brand)]">
@@ -336,7 +336,7 @@ export default function WhatWeOfferPage() {
                 Your problem is still <span className="text-[var(--color-brand)]">solvable.</span>
               </h2>
               <p className="max-w-xl text-base text-[var(--color-fg-muted)]">
-                Give us a call or fill the form — we build personalized AI solutions to your
+                Give us a call or fill the form we build personalized AI solutions to your
                 exact problem, not generic tools dressed up for your industry. Your needs
                 will surely be matched.
               </p>
